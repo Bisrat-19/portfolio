@@ -37,7 +37,7 @@ export function Projects() {
       live: "#", // Replace with actual live URL if deployed
     },
     {
-      title: "📅 Event Management System (AAU)",
+      title: "📅 Event Management System",
       description:
         "A full-stack platform for managing student events at Addis Ababa University. Features event creation, registration, participant tracking, and role-based access for students, organizers, and admins.",
       tech: ["HTML", "CSS", "JavaScript", "NestJS", "PostgreSQL"],
