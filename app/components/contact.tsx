@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
-import emailjs from "emailjs-com" // ✅ Added for email sending
+import emailjs from "emailjs-com" 
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
