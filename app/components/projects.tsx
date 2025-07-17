@@ -32,7 +32,7 @@ export function Projects() {
       description:
         "A backend-only RESTful API for a Task Management System built with Express.js, Prisma, and MySQL. Includes secure JWT authentication, user profile access, and full task CRUD functionality with support for search, pagination, and status filtering. Deployed on Render.",
       tech: ["Node.js", "Express.js", "Prisma", "MySQL"],
-      image: "https://images.unsplash.com/photo-1612831819394-0943031d2b3b?auto=format&fit=crop&w=800&q=80",
+      image: "/task.jpg?height=200&width=400",
       github: "https://github.com/Bisrat-19/Task_Management_System.git",
       live: "https://task-management-system-t4tr.onrender.com"
     },
