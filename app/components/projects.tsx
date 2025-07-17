@@ -28,6 +28,15 @@ export function Projects() {
 
   const projects = [
     {
+      title: "🛠️ Task Manager API",
+      description:
+        "A backend-only RESTful API for a Task Management System built with Express.js, Prisma, and MySQL. Includes secure JWT authentication, user profile access, and full task CRUD functionality with support for search, pagination, and status filtering. Deployed on Render.",
+      tech: ["Node.js", "Express.js", "Prisma", "MySQL"],
+      image: "https://images.unsplash.com/photo-1612831819394-0943031d2b3b?auto=format&fit=crop&w=800&q=80",
+      github: "https://github.com/Bisrat-19/Task_Management_System.git",
+      live: "https://task-management-system-t4tr.onrender.com"
+    },
+    {
       title: "🎵 ArifMusic App",
       description:
         "A Flutter-based music streaming app with user roles (listener, artist, admin). Features include music upload and management, artist dashboards with analytics, and music streaming with a local Node.js & MongoDB backend.",
