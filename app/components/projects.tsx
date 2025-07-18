@@ -32,7 +32,7 @@ export function Projects() {
       description:
         "A backend-only RESTful API for a Task Management System built with Express.js, Prisma, and MySQL. Includes secure JWT authentication, user profile access, and full task CRUD functionality with support for search, pagination, and status filtering. Deployed on Render.",
       tech: ["Node.js", "Express.js", "Prisma", "MySQL"],
-      image: "/task.jpg?height=200&width=400",
+      image: "/task.jpg?height=300&width=400",
       github: "https://github.com/Bisrat-19/Task_Management_System.git",
       live: "https://task-management-system-t4tr.onrender.com"
     },
@@ -41,7 +41,7 @@ export function Projects() {
       description:
         "A Flutter-based music streaming app with user roles (listener, artist, admin). Features include music upload and management, artist dashboards with analytics, and music streaming with a local Node.js & MongoDB backend.",
       tech: ["Flutter", "Node.js", "Express.js", "MongoDB"],
-      image: "/arifmusic.jpg?height=200&width=400",
+      image: "/arifmusic.jpg?height=300&width=400",
       github: "https://github.com/Bisrat-19/Music-App",
       live: "#", // Replace with actual live URL if deployed
     },
@@ -50,7 +50,7 @@ export function Projects() {
       description:
         "A full-stack platform for managing student events at Addis Ababa University. Features event creation, registration, participant tracking, and role-based access for students, organizers, and admins.",
       tech: ["HTML", "CSS", "JavaScript", "NestJS", "PostgreSQL"],
-      image: "/event.jpg?height=200&width=400",
+      image: "/event.jpg?height=300&width=400",
       github: "https://github.com/Bisrat-19/Event_Management_Platform_2024_25",
       live: "#", // Replace with actual live URL if deployed
     },
