@@ -28,13 +28,13 @@ export function Projects() {
 
   const projects = [
     {
-      title: "🛠️ Task Manager API",
+      title: "📋 CollabBoard",
       description:
-        "A backend-only RESTful API for a Task Management System built with Express.js, Prisma, and MySQL. Includes secure JWT authentication, user profile access, and full task CRUD functionality with support for search, pagination, and status filtering. Deployed on Render.",
-      tech: ["Node.js", "Express.js", "Prisma", "MySQL"],
-      image: "/task.jpg?height=300&width=400",
-      github: "https://github.com/Bisrat-19/Task_Management_System.git",
-      live: "https://task-management-system-t4tr.onrender.com"
+        "A full-stack project management tool for teams to create projects, organize tasks across boards, assign responsibilities, and track progress. Features include authentication, user roles, admin controls, and a responsive Kanban-style interface for seamless collaboration.",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Express.js", "MongoDB"],
+      image: "/collabboard.jpg?height=300&width=400",
+      github: "https://github.com/Bisrat-19/CollabBoard.git",
+      live: ""
     },
     {
       title: "🎵 ArifMusic App",
@@ -43,7 +43,25 @@ export function Projects() {
       tech: ["Flutter", "Node.js", "Express.js", "MongoDB"],
       image: "/arifmusic.jpg?height=300&width=400",
       github: "https://github.com/Bisrat-19/Music-App",
-      live: "#", // Replace with actual live URL if deployed
+      live: "https://github.com/Bisrat-19/Music-App", // Replace with actual live URL if deployed
+    },
+    {
+      title: "🛒 EcoMart",
+      description:
+        "A full-stack e-commerce platform built with modern web technologies. Users can browse products, add items to cart, place orders, and track them. Includes a robust admin dashboard for managing products, orders, and users.",
+      tech: ["Next.js", "Tailwind CSS", "Express.js", "MongoDB"],
+      image: "/ecomart.jpg?height=300&width=400",
+      github: "https://github.com/Bisrat-19/EcoMart.git",
+      live: ""
+    },
+    {
+      title: "🛠️ Task Manager API",
+      description:
+        "A backend-only RESTful API for a Task Management System built with Express.js, Prisma, and MySQL. Includes secure JWT authentication, user profile access, and full task CRUD functionality with support for search, pagination, and status filtering. Deployed on Render.",
+      tech: ["Node.js", "Express.js", "Prisma", "MySQL"],
+      image: "/task.jpg?height=300&width=400",
+      github: "https://github.com/Bisrat-19/Task_Management_System.git",
+      live: "https://task-management-system-t4tr.onrender.com"
     },
     {
       title: "📅 Event Management System",
@@ -85,7 +103,7 @@ export function Projects() {
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
