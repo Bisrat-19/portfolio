@@ -63,15 +63,6 @@ export function Projects() {
       github: "https://github.com/Bisrat-19/Task_Management_System.git",
       live: "https://task-management-system-t4tr.onrender.com"
     },
-    {
-      title: "📅 Event Management System",
-      description:
-        "A full-stack platform for managing student events at Addis Ababa University. Features event creation, registration, participant tracking, and role-based access for students, organizers, and admins.",
-      tech: ["HTML", "CSS", "JavaScript", "NestJS", "PostgreSQL"],
-      image: "/event.jpg?height=300&width=400",
-      github: "https://github.com/Bisrat-19/Event_Management_Platform_2024_25",
-      live: "#", // Replace with actual live URL if deployed
-    },
   ]
 
   return (
