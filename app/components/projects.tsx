@@ -34,7 +34,7 @@ export function Projects() {
       tech: ["Next.js", "TypeScript", "Tailwind CSS", "Express.js", "MongoDB"],
       image: "/collabboard.jpg?height=300&width=400",
       github: "https://github.com/Bisrat-19/CollabBoard.git",
-      live: ""
+      live: "https://collab-board-steel.vercel.app/"
     },
     {
       title: "🎵 ArifMusic App",
