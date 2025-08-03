@@ -28,15 +28,15 @@ export function Skills() {
   const skills = [
     {
       name: "Programming Languages",
-      level: 85,
+      level: 90,
       icon: Code,
       description: "Java (OOP), Python, JavaScript",
     },
     {
       name: "Web Development",
-      level: 80,
+      level: 90,
       icon: Globe,
-      description: "React, NextJS, ExpressJS, NestJS",
+      description: "React, Next, Express, Nest, Tailwind",
     },
     {
       name: "Mobile Development",
@@ -46,13 +46,13 @@ export function Skills() {
     },
     {
       name: "Database Systems",
-      level: 80,
+      level: 90,
       icon: Database,
       description: "MySQL, MongoDB, PostgreSQL",
     },
     {
       name: "Software Engineering",
-      level: 85,
+      level: 80,
       icon: GitBranch,
       description: "Git, GitHub, Agile methodologies",
     },
