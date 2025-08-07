@@ -42,7 +42,7 @@ export function Skills() {
       name: "Mobile Development",
       level: 80,
       icon: Smartphone,
-      description: "Kotlin, Flutter",
+      description: "Flutter",
     },
     {
       name: "Database Systems",

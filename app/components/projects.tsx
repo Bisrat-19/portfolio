@@ -30,7 +30,7 @@ export function Projects() {
     {
       title: "📋 CollabBoard",
       description:
-        "A full-stack project management tool for teams to create projects, organize tasks across boards, assign responsibilities, and track progress. Features include authentication, user roles, admin controls, and a responsive Kanban-style interface for seamless collaboration.",
+        "A full-stack real-time project management platform for seamless team collaboration. Features include real-time task updates, live chat messaging, instant notifications, and dynamic Kanban boards that sync across all team members simultaneously.",
       tech: ["Next.js", "TypeScript", "Tailwind CSS", "Express.js", "MongoDB"],
       image: "/collabboard.jpg?height=300&width=400",
       github: "https://github.com/Bisrat-19/CollabBoard.git",
