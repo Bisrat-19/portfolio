@@ -37,12 +37,21 @@ export function Projects() {
       live: "https://collab-board-steel.vercel.app/"
     },
     {
+      title: "🌐 LinkUp API",
+      description:
+        "Scalable social media backend with JWT auth, posts (text/image/video), likes, comments, follows, real-time chat via Socket.IO, and notifications. An advanced admin dashboard allows viewing user analytics, managing reports, and banning reported users. Dockerized with CI/CD for automatic builds and deploys.",
+      tech: ["Node.js", "Express.js", "MongoDB", "Docker", "CI/CD"],
+      image: "/linkup.jpg?height=300&width=400",
+      github: "https://github.com/Bisrat-19/LinkUp.git",
+      live: "https://github.com/Bisrat-19/LinkUp.git"
+    },
+    {
       title: "🎵 ArifMusic App",
       description:
         "A Flutter-based music streaming app with user roles (listener, artist, admin). Features include music upload and management, artist dashboards with analytics, and music streaming with a local Node.js & MongoDB backend.",
       tech: ["Flutter", "Node.js", "Express.js", "MongoDB"],
       image: "/arifmusic.jpg?height=300&width=400",
-      github: "https://github.com/Bisrat-19/Music-App",
+      github: "https://github.com/Bisrat-19/Music-App", 
       live: "https://github.com/Bisrat-19/Music-App", // Replace with actual live URL if deployed
     },
     {

@@ -54,7 +54,7 @@ export function Skills() {
       name: "Software Engineering",
       level: 80,
       icon: GitBranch,
-      description: "Git, GitHub, Agile methodologies",
+      description: "Git, GitHub, Docker, CI/CD",
     },
   ]
 
