@@ -74,6 +74,17 @@ export function Skills() {
           </p>
         </div>
 
+        {/* Mobile marquee pills */}
+        <div className={`md:hidden overflow-hidden mb-10 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+          <div className="marquee gap-3">
+            {[...skills, ...skills].map((skill) => (
+              <span key={`${skill.name}-${Math.random()}`} className="px-4 py-2 bg-emerald-500/20 text-emerald-300 rounded-full text-sm border border-emerald-500/30">
+                {skill.name}
+              </span>
+            ))}
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((skill, index) => (
             <Card
