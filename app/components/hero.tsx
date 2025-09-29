@@ -32,8 +32,8 @@ export function Hero() {
   const downloadCV = () => {
     try {
       const link = document.createElement("a")
-      link.href = "/cv/Bisrat_Dereje_CV.pdf"
-      link.download = "Bisrat_Dereje_CV.pdf"
+      link.href = "/cv/Resume.pdf"
+      link.download = "Resume.pdf"
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
