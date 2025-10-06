@@ -36,7 +36,7 @@ export function Skills() {
       name: "Web Development",
       level: 90,
       icon: Globe,
-      description: "React, Next, Express, Nest, Tailwind",
+      description: "Django, React, Next, Express, Nest, Tailwind",
     },
     {
       name: "Mobile Development",
