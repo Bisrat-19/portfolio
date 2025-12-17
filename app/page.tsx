@@ -1,16 +1,16 @@
 import { Hero } from "./components/hero"
-import { About } from "./components/about"
 import { Skills } from "./components/skills"
 import { Projects } from "./components/projects"
+import { WorkHistory } from "./components/work-history"
 import { Contact } from "./components/contact"
 import { Navigation } from "./components/navigation"
 
 export default function Portfolio() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <main className="min-h-screen bg-black">
       <Navigation />
       <Hero />
-      <About />
+      <WorkHistory />
       <Skills />
       <Projects />
       <Contact />

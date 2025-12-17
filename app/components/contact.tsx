@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
-import emailjs from "emailjs-com" 
+import emailjs from "emailjs-com"
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -52,27 +52,23 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 px-4 bg-slate-800">
+    <section id="contact" className="py-20 px-4 bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Get In <span className="text-emerald-500">Touch</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            I'm open to internships, freelance projects, or tech collaborations. Let's connect and build something
-            amazing together!
-          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-semibold text-white mb-6">Let's work together!</h3>
-              <p className="text-gray-300 leading-relaxed mb-8">
-                As a Software Engineering student passionate about creating impactful solutions, I'm always interested
-                in new opportunities. Whether it's internships, collaborative projects, or tech discussions, I'd love to
-                hear from you!
+              <h3 className="text-2xl font-semibold text-foreground mb-6">Let's work together!</h3>
+              <p className="text-muted-foreground leading-relaxed mb-8">
+                As a Software Engineer with experience across web, backend, and API development, I'm always interested
+                in meaningful work whether it's joining a team, collaborating on a product, or solving a specific
+                technical problem.
               </p>
             </div>
 
@@ -82,8 +78,8 @@ export function Contact() {
                   <Phone className="h-5 w-5 text-emerald-400" />
                 </div>
                 <div>
-                  <p className="text-white font-medium">Phone</p>
-                  <a href="tel:+251936092033" className="text-gray-300 hover:text-emerald-400 transition-colors">
+                  <p className="text-foreground font-medium">Phone</p>
+                  <a href="tel:+251936092033" className="text-muted-foreground hover:text-emerald-400 transition-colors">
                     +251 936 092 033
                   </a>
                 </div>
@@ -94,10 +90,10 @@ export function Contact() {
                   <Mail className="h-5 w-5 text-emerald-400" />
                 </div>
                 <div>
-                  <p className="text-white font-medium">Email</p>
+                  <p className="text-foreground font-medium">Email</p>
                   <a
                     href="mailto:bdereje996@gmail.com"
-                    className="text-gray-300 hover:text-emerald-400 transition-colors"
+                    className="text-muted-foreground hover:text-emerald-400 transition-colors"
                   >
                     bdereje996@gmail.com
                   </a>
@@ -109,12 +105,12 @@ export function Contact() {
                   <Github className="h-5 w-5 text-emerald-400" />
                 </div>
                 <div>
-                  <p className="text-white font-medium">GitHub</p>
+                  <p className="text-foreground font-medium">GitHub</p>
                   <a
                     href="https://github.com/Bisrat-19"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-300 hover:text-emerald-400 transition-colors"
+                    className="text-muted-foreground hover:text-emerald-400 transition-colors"
                   >
                     github.com/Bisrat-19
                   </a>
@@ -126,8 +122,8 @@ export function Contact() {
                   <MapPin className="h-5 w-5 text-emerald-400" />
                 </div>
                 <div>
-                  <p className="text-white font-medium">Location</p>
-                  <p className="text-gray-300">Addis Ababa, Ethiopia</p>
+                  <p className="text-foreground font-medium">Location</p>
+                  <p className="text-muted-foreground">Addis Ababa, Ethiopia</p>
                 </div>
               </div>
             </div>
@@ -136,7 +132,7 @@ export function Contact() {
               <Button
                 variant="outline"
                 size="icon"
-                className="rounded-full bg-white/10 border-white/20 text-white hover:bg-emerald-500/20 hover:border-emerald-500/50"
+                className="rounded-full bg-card border-border text-foreground hover:bg-emerald-500/20 hover:border-emerald-500/50"
                 asChild
               >
                 <a href="https://github.com/Bisrat-19" target="_blank" rel="noopener noreferrer">
@@ -146,7 +142,7 @@ export function Contact() {
               <Button
                 variant="outline"
                 size="icon"
-                className="rounded-full bg-white/10 border-white/20 text-white hover:bg-emerald-500/20 hover:border-emerald-500/50"
+                className="rounded-full bg-card border-border text-foreground hover:bg-emerald-500/20 hover:border-emerald-500/50"
                 asChild
               >
                 <a href="mailto:bdereje996@gmail.com">
@@ -156,7 +152,7 @@ export function Contact() {
               <Button
                 variant="outline"
                 size="icon"
-                className="rounded-full bg-white/10 border-white/20 text-white hover:bg-emerald-500/20 hover:border-emerald-500/50"
+                className="rounded-full bg-card border-border text-foreground hover:bg-emerald-500/20 hover:border-emerald-500/50"
                 asChild
               >
                 <a href="tel:+251936092033">
@@ -167,7 +163,7 @@ export function Contact() {
           </div>
 
           {/* Contact Form */}
-          <Card className="bg-white/5 border-white/10">
+          <Card className="bg-card border-border">
             <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -178,7 +174,7 @@ export function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-emerald-400"
+                    className="bg-zinc-900/50 border-zinc-800 text-foreground placeholder:text-muted-foreground focus:border-emerald-500 focus:bg-zinc-900 focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300"
                   />
                 </div>
 
@@ -190,7 +186,7 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-emerald-400"
+                    className="bg-zinc-900/50 border-zinc-800 text-foreground placeholder:text-muted-foreground focus:border-emerald-500 focus:bg-zinc-900 focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300"
                   />
                 </div>
 
@@ -202,7 +198,7 @@ export function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-emerald-400 resize-none"
+                    className="bg-zinc-900/50 border-zinc-800 text-foreground placeholder:text-muted-foreground focus:border-emerald-500 focus:bg-zinc-900 focus-visible:ring-0 focus-visible:ring-offset-0 resize-none transition-all duration-300"
                   />
                 </div>
 
@@ -218,8 +214,8 @@ export function Contact() {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-16 pt-8 border-t border-white/10">
-          <p className="text-gray-400">© 2024 Bisrat Dereje. Built with React & Next.js</p>
+        <div className="text-center mt-16 pt-8 border-t border-border">
+          <p className="text-muted-foreground">© 2024 Bisrat Dereje.</p>
         </div>
       </div>
     </section>
