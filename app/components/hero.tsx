@@ -74,7 +74,7 @@ export function Hero() {
                 <Github className="h-6 w-6" />
               </a>
               <a
-                href="https://linkedin.com/in/bisrat-dereje-434496356"
+                href="https://www.linkedin.com/in/bisrat19/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors transform hover:scale-110"

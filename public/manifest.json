@@ -1,0 +1,21 @@
+{
+    "name": "Bisrat Dereje Portfolio",
+    "short_name": "Bisrat Portfolio",
+    "description": "Software Engineer specializing in building reliable, well-structured web applications and scalable systems.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#10b981",
+    "icons": [
+        {
+            "src": "/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "/images/profile.jpg",
+            "sizes": "512x512",
+            "type": "image/jpeg"
+        }
+    ]
+}
