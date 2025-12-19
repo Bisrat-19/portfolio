@@ -20,21 +20,14 @@ export const metadata: Metadata = {
     title: 'Bisrat Dereje | Software Engineer',
     description: 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.',
     siteName: 'Bisrat Dereje Portfolio',
-    images: [
-      {
-        url: '/images/profile.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Bisrat Dereje',
-      },
-    ],
+    images: [],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Bisrat Dereje | Software Engineer',
     description: 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.',
     creator: '@bisrat_dereje',
-    images: ['/images/profile.jpg'],
+    images: [],
   },
   robots: {
     index: true,
@@ -50,19 +43,11 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/favicon.svg',
+        url: '/favicon.svg?v=1',
         type: 'image/svg+xml',
-      },
-      {
-        url: '/favicon.ico',
-        type: 'image/x-icon',
-      },
-      {
-        url: '/images/profile.jpg',
-        type: 'image/jpeg',
       }
     ],
-    apple: '/favicon.svg',
+    apple: '/favicon.svg?v=1',
   },
 }
 
@@ -79,7 +64,7 @@ export default function RootLayout({
     jobTitle: 'Software Engineer',
     sameAs: [
       'https://github.com/Bisrat-19',
-      'https://linkedin.com/in/bisrat-dereje-434496356',
+      'https://www.linkedin.com/in/bisrat19/',
     ],
     description: 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.',
   }
