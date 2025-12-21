@@ -3,6 +3,7 @@
 import {
   SiJavascript, SiTypescript, SiPython, SiGo, SiHtml5, SiCss3, SiReact, SiNextdotjs, SiAngular, SiTailwindcss,
   SiNodedotjs, SiExpress, SiNestjs, SiDjango, SiDotnet, SiPostgresql, SiMysql, SiMongodb, SiDocker, SiGit, SiGithub,
+  SiNginx, SiRedis, SiRabbitmq
 } from "react-icons/si"
 import { FaNetworkWired, FaJava } from "react-icons/fa"
 import { TbBrandCSharp } from "react-icons/tb"
@@ -31,6 +32,9 @@ export function Skills() {
     { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
     { name: "MySQL", icon: SiMysql, color: "#4479A1" },
     { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+    { name: "Redis", icon: SiRedis, color: "#DC382D" },
+    { name: "RabbitMQ", icon: SiRabbitmq, color: "#FF6600" },
+    { name: "Nginx", icon: SiNginx, color: "#009639" },
     { name: "Docker", icon: SiDocker, color: "#2496ED" },
     { name: "Git", icon: SiGit, color: "#F05032" },
     { name: "GitHub", icon: SiGithub, color: "#ffffff" },

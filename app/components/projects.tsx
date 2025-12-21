@@ -1,105 +1,76 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { ExternalLink, Github } from "lucide-react"
+import { ExternalLink, Github, ChevronRight } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 
 export function Projects() {
-  const [isVisible, setIsVisible] = useState(false)
-  const [isHovered, setIsHovered] = useState(false)
-  const [direction, setDirection] = useState(1) // 1 for right, -1 for left
-  const ref = useRef<HTMLElement>(null)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [showScrollHint, setShowScrollHint] = useState(true)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.3 },
-    )
-
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
-
-    return () => observer.disconnect()
-  }, [])
-
-  useEffect(() => {
-    const container = scrollContainerRef.current
-    if (!container || !isVisible) return
-
-    // Using interval for simpler control or requestAnimationFrame for smoothness
-    const interval = setInterval(() => {
-      if (container && !isHovered) {
-        // Check for boundaries to reverse direction
-        if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 1) {
-          setDirection(-1)
-        } else if (container.scrollLeft <= 0) {
-          setDirection(1)
-        }
-
-        container.scrollLeft += direction
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft } = scrollContainerRef.current
+      if (scrollLeft > 20) {
+        setShowScrollHint(false)
+      } else {
+        setShowScrollHint(true)
       }
-    }, 20) // 50fps approx
-
-    return () => clearInterval(interval)
-  }, [isVisible, isHovered, direction])
-
-  // Scroll-jacking removed to allow natural scrolling
+    }
+  }
 
   const projects = [
     {
+      title: "HealPoint",
+      description: "A comprehensive hospital management system for patient registration, appointments, treatment tracking, and Chapa payment integration.",
+      tech: ["React", "TypeScript", "Tailwind CSS", "Django", "Redis", "PostgreSQL"],
+      github: "https://github.com/Bisrat-19/hospital_management.git",
+      live: "https://github.com/Bisrat-19/hospital_management.git",
+      image: "/project_healpoint.png"
+    },
+    {
       title: "CollabBoard",
-      description: "A real-time collaborative whiteboard application allowing multiple users to draw and brainstorm together.",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Express.js", "MongoDB"],
+      description: "CollabBoard is a project management tool that helps teams organize projects, manage tasks, and collaborate efficiently with features like real-time chat, notifications, boards, task assignments, and role-based access.",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Express.js", "Socket.io", "MongoDB"],
       github: "https://github.com/Bisrat-19/CollabBoard.git",
       live: "https://collab-board-steel.vercel.app/",
-      image: "/collabboard.jpg"
+      image: "/project_bg_2.png"
     },
     {
-      title: "LinkUp API",
-      description: "A robust social media backend API handling user connections, posts, and real-time notifications.",
-      tech: ["Node.js", "Express.js", "MongoDB", "Docker", "CI/CD"],
-      github: "https://github.com/Bisrat-19/LinkUp.git",
-      live: "https://github.com/Bisrat-19/LinkUp.git",
-      image: "/linkup.jpg"
+      title: "MicroShop API",
+      description: "A microservices architecture with API Gateway (Nginx), Auth, Order, and Notification services using RabbitMQ for async messaging.",
+      tech: ["Django", "Nginx", "RabbitMQ", "Docker", "Python"],
+      github: "https://github.com/Bisrat-19/microservices_practice",
+      live: "https://github.com/Bisrat-19/microservices_practice",
+      image: "/project_microshop.png"
     },
     {
-      title: "ArifMusic App",
+      title: "ArifMusic",
       description: "A cross-platform music streaming application with offline playback and playlist management.",
       tech: ["Flutter", "Node.js", "Express.js", "MongoDB"],
       github: "https://github.com/Bisrat-19/Music-App",
       live: "https://github.com/Bisrat-19/Music-App",
-      image: "/arifmusic.jpg"
+      image: "/project_arifmusic.png"
     },
     {
-      title: "EcoMart",
-      description: "An e-commerce platform focused on sustainable products with a full shopping cart and checkout flow.",
-      tech: ["Next.js", "Tailwind CSS", "Express.js", "MongoDB"],
-      github: "https://github.com/Bisrat-19/EcoMart.git",
-      live: "https://github.com/Bisrat-19/EcoMart.git",
-      image: "/ecomart.jpg"
-    },
-    {
-      title: "Task Manager API",
-      description: "A comprehensive task management system API with team collaboration features and progress tracking.",
-      tech: ["Node.js", "Express.js", "Prisma", "MySQL"],
-      github: "https://github.com/Bisrat-19/Task_Management_System.git",
-      live: "https://task-management-system-t4tr.onrender.com",
-      image: "/task.jpg"
+      title: "Klever Küche",
+      description: "A furniture showcase platform with product details, retailer search, job portal, and an admin dashboard for content management.",
+      tech: ["React","TypeScript","Tailwind CSS", "Strapi CMS", "PostgreSQL"],
+      github: " ", 
+      live: " ",
+      image: "/project_bg_1.png"
     },
   ]
 
   return (
-    <section id="projects" ref={ref} className="py-12 px-3 bg-background">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div
-          className={`text-center mb-10 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
+    <section id="projects" className="py-20 bg-background overflow-hidden relative">
+      <div className="max-w-7xl mx-auto px-4 mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             My <span className="text-emerald-500">Projects</span>
@@ -107,97 +78,108 @@ export function Projects() {
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A collection of projects showcasing my work across web and mobile development.
           </p>
-        </div>
+        </motion.div>
+      </div>
 
-        {/* Single-Row Horizontal Scroll Grid */}
-        <div className="relative">
-          {/* Scroll container */}
-          <div
-            ref={scrollContainerRef}
-            className="overflow-x-auto pb-8 scrollbar-hide"
-            style={{
-              scrollbarWidth: 'none',
-              msOverflowStyle: 'none',
-              maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
-            }}
-          >
-
-            <div
-              className="flex gap-6"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
+      <div className="relative max-w-[1920px] mx-auto">
+        {/* Scroll Hint */}
+        <AnimatePresence>
+          {showScrollHint && (
+            <motion.div
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 10 }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 hidden md:flex items-center gap-2 pointer-events-none"
             >
-              {projects.map((project, index) => (
-                <div
-                  key={`${project.title}-${index}`}
-                  className={`group relative overflow-hidden rounded-3xl flex-shrink-0 w-[400px] md:w-[550px] h-[450px] border border-white/10 bg-zinc-900/50 backdrop-blur-sm transition-all duration-500 hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.2)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                    }`}
-                  style={{ transitionDelay: `${index * 100}ms` }}
-                >
-                  {/* Full Background Image */}
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                    style={{ backgroundImage: `url(${project.image})` }}
-                  />
+              <span className="text-emerald-500/80 text-sm font-medium tracking-widest uppercase">Scroll</span>
+              <motion.div
+                animate={{ x: [0, 10, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                <ChevronRight className="w-8 h-8 text-emerald-500" />
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-                  {/* Gradient Overlay - Always present but changes on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-95" />
+        <div
+          ref={scrollContainerRef}
+          onScroll={handleScroll}
+          className="flex overflow-x-auto gap-8 px-4 md:px-12 pb-12 snap-x snap-mandatory scrollbar-hide"
+          style={{
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+            WebkitOverflowScrolling: 'touch'
+          }}
+        >
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              className="relative group flex-shrink-0 w-[85vw] md:w-[600px] h-[400px] rounded-3xl overflow-hidden bg-zinc-900 border border-white/10 shadow-xl snap-center cursor-pointer"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              {/* Image Background */}
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: `url(${project.image})` }}
+              />
 
-                  {/* Content Container */}
-                  <div className="absolute inset-0 p-8 flex flex-col justify-end transform transition-transform duration-500">
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
 
-                    {/* Top Content (Hidden initially, visible on hover) */}
-                    <div className="absolute top-8 right-8 flex gap-3 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-[-20px] group-hover:translate-y-0">
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-3 bg-black/50 hover:bg-emerald-500 text-white rounded-full backdrop-blur-md border border-white/10 transition-all duration-300"
-                        title="View Code"
+              {/* Content */}
+              <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                {/* Floating Links on Top Right */}
+                <div className="absolute top-6 right-6 flex gap-3 translate-y-[-20px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 bg-white/10 hover:bg-emerald-500 text-white rounded-full backdrop-blur-md border border-white/20 transition-all duration-300 transform hover:scale-110"
+                    title="View Code"
+                  >
+                    <Github className="h-5 w-5" />
+                  </a>
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 bg-white/10 hover:bg-emerald-500 text-white rounded-full backdrop-blur-md border border-white/20 transition-all duration-300 transform hover:scale-110"
+                      title="View Live"
+                    >
+                      <ExternalLink className="h-5 w-5" />
+                    </a>
+                  )}
+                </div>
+
+                <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <h3 className="text-3xl font-bold text-white mb-3 tracking-wide group-hover:text-emerald-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-zinc-300 mb-6 line-clamp-2 group-hover:line-clamp-none transition-all duration-500">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-emerald-500/10 text-emerald-300 text-xs font-semibold rounded-full border border-emerald-500/20 backdrop-blur-sm"
                       >
-                        <Github className="h-5 w-5" />
-                      </a>
-                      {project.live && (
-                        <a
-                          href={project.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-3 bg-black/50 hover:bg-emerald-500 text-white rounded-full backdrop-blur-md border border-white/10 transition-all duration-300"
-                          title="View Live"
-                        >
-                          <ExternalLink className="h-5 w-5" />
-                        </a>
-                      )}
-                    </div>
-
-                    {/* Main Content */}
-                    <div className="transform transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                      <h3 className="text-3xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">
-                        {project.title}
-                      </h3>
-
-                      <p className="text-zinc-300 text-sm mb-6 line-clamp-2 group-hover:line-clamp-none transition-all duration-500 opacity-80 group-hover:opacity-100">
-                        {project.description}
-                      </p>
-
-                      {/* Tech Stack - Glassmorphism Pills */}
-                      <div className="flex flex-wrap gap-2">
-                        {project.tech.map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-3 py-1 bg-emerald-500/10 text-emerald-300 text-xs font-medium rounded-full border border-emerald-500/20 backdrop-blur-sm"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
+            </motion.div>
+          ))}
+
+          {/* Spacer for end of scroll */}
+          <div className="w-[1px] h-full flex-shrink-0" />
         </div>
       </div>
     </section>
