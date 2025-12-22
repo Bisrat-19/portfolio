@@ -174,7 +174,7 @@ export function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="bg-zinc-900/50 border-zinc-800 text-foreground placeholder:text-muted-foreground focus:border-emerald-500 focus:bg-zinc-900 focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300"
+                    className="bg-secondary/50 border-input text-foreground placeholder:text-muted-foreground focus:border-emerald-500 focus:bg-background focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300"
                   />
                 </div>
 
@@ -186,7 +186,7 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="bg-zinc-900/50 border-zinc-800 text-foreground placeholder:text-muted-foreground focus:border-emerald-500 focus:bg-zinc-900 focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300"
+                    className="bg-secondary/50 border-input text-foreground placeholder:text-muted-foreground focus:border-emerald-500 focus:bg-background focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300"
                   />
                 </div>
 
@@ -198,7 +198,7 @@ export function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="bg-zinc-900/50 border-zinc-800 text-foreground placeholder:text-muted-foreground focus:border-emerald-500 focus:bg-zinc-900 focus-visible:ring-0 focus-visible:ring-offset-0 resize-none transition-all duration-300"
+                    className="bg-secondary/50 border-input text-foreground placeholder:text-muted-foreground focus:border-emerald-500 focus:bg-background focus-visible:ring-0 focus-visible:ring-offset-0 resize-none transition-all duration-300"
                   />
                 </div>
 

@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 15% 93%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -63,6 +63,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -73,6 +74,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -80,10 +82,12 @@
 }
 
 @keyframes blink {
+
   0%,
   50% {
     opacity: 1;
   }
+
   51%,
   100% {
     opacity: 0;
@@ -107,6 +111,7 @@ html {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -124,14 +129,17 @@ html {
     transform: translate(0px, 0px) scale(1);
     border-radius: 40% 60% 65% 35% / 40% 35% 65% 60%;
   }
+
   33% {
     transform: translate(10px, -20px) scale(1.05);
     border-radius: 60% 40% 45% 55% / 55% 60% 40% 45%;
   }
+
   66% {
     transform: translate(-15px, 10px) scale(0.98);
     border-radius: 55% 45% 60% 40% / 50% 45% 55% 50%;
   }
+
   100% {
     transform: translate(0px, 0px) scale(1);
     border-radius: 40% 60% 65% 35% / 40% 35% 65% 60%;
