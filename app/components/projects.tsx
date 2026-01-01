@@ -25,7 +25,7 @@ export function Projects() {
       description: "A comprehensive hospital management system for patient registration, appointments, treatment tracking, and Chapa payment integration.",
       tech: ["React", "TypeScript", "Tailwind CSS", "Django", "Redis", "PostgreSQL"],
       github: "https://github.com/Bisrat-19/hospital_management.git",
-      live: "https://github.com/Bisrat-19/hospital_management.git",
+      live: "https://heal-point-ten.vercel.app/",
       image: "/project_healpoint.png"
     },
     {
