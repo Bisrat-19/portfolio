@@ -56,6 +56,9 @@ export const metadata: Metadata = {
     ],
     apple: '/favicon.svg?v=1',
   },
+  alternates: {
+    canonical: 'https://bisratdereje.me',
+  },
 }
 
 export default function RootLayout({
