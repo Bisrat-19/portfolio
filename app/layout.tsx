@@ -12,22 +12,29 @@ export const metadata: Metadata = {
   keywords: ['Bisrat Dereje', 'Software Engineer', 'Full Stack Developer', 'Web Development', 'Addis Ababa', 'Ethiopia', 'React', 'Next.js', 'TypeScript'],
   authors: [{ name: 'Bisrat Dereje' }],
   creator: 'Bisrat Dereje',
-  metadataBase: new URL('https://bisratdereje.vercel.app'),
+  metadataBase: new URL('https://bisratdereje.me'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://bisratdereje.vercel.app',
+    url: 'https://bisratdereje.me',
     title: 'Bisrat Dereje | Software Engineer',
     description: 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.',
     siteName: 'Bisrat Dereje Portfolio',
-    images: [],
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Bisrat Dereje - Software Engineer',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Bisrat Dereje | Software Engineer',
     description: 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.',
     creator: '@bisrat_dereje',
-    images: [],
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
@@ -60,13 +67,33 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Bisrat Dereje',
-    url: 'https://bisratdereje.vercel.app',
+    url: 'https://bisratdereje.me',
     jobTitle: 'Software Engineer',
+    description: 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.',
+    image: 'https://bisratdereje.me/og-image.png',
     sameAs: [
       'https://github.com/Bisrat-19',
       'https://www.linkedin.com/in/bisrat19/',
+      'https://twitter.com/bisrat_dereje',
     ],
-    description: 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.',
+    knowsAbout: [
+      'Software Engineering',
+      'Web Development',
+      'React',
+      'Next.js',
+      'TypeScript',
+      'Node.js',
+      'System Architecture'
+    ],
+    alumniOf: {
+      '@type': 'CollegeOrUniversity',
+      name: 'Addis Ababa University',
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Addis Ababa',
+      addressCountry: 'Ethiopia',
+    },
   }
 
   return (

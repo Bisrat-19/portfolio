@@ -12,7 +12,7 @@ export function Hero() {
   }
 
   const openResume = () => {
-    window.open("/cv/Resume.pdf", "_blank")
+    window.open("https://drive.google.com/file/d/1ExamBEhd-EdK7UOgiWRVHNVn3_xP2UBl/view?usp=sharing", "_blank")
   }
 
   return (
@@ -68,7 +68,7 @@ export function Hero() {
               <a
                 href="https://github.com/Bisrat-19"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer me"
                 className="text-muted-foreground hover:text-foreground transition-colors transform hover:scale-110"
               >
                 <Github className="h-6 w-6" />
@@ -76,7 +76,7 @@ export function Hero() {
               <a
                 href="https://www.linkedin.com/in/bisrat19/"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer me"
                 className="text-muted-foreground hover:text-foreground transition-colors transform hover:scale-110"
               >
                 <Linkedin className="h-6 w-6" />
