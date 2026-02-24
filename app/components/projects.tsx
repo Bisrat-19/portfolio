@@ -22,7 +22,7 @@ export function Projects() {
   const projects = [
     {
       title: "HealPoint",
-      description: "A comprehensive hospital management system for patient registration, appointments, treatment tracking, and Chapa payment integration.",
+      description: "A comprehensive hospital management system I built for patient registration, appointments, treatment tracking, and Chapa payment integration.",
       tech: ["React", "TypeScript", "Tailwind CSS", "Django", "Redis", "PostgreSQL"],
       github: "https://github.com/Bisrat-19/hospital_management.git",
       live: "https://heal-point-ten.vercel.app/",
@@ -30,7 +30,7 @@ export function Projects() {
     },
     {
       title: "CollabBoard",
-      description: "CollabBoard is a project management tool that helps teams organize projects, manage tasks, and collaborate efficiently with features like real-time chat, notifications, boards, task assignments, and role-based access.",
+      description: "CollabBoard is a project management tool I worked on to help teams organize projects, manage tasks, and collaborate efficiently with real-time chat, notifications, boards, task assignments, and role-based access.",
       tech: ["Next.js", "TypeScript", "Tailwind CSS", "Express.js", "Socket.io", "MongoDB"],
       github: "https://github.com/Bisrat-19/CollabBoard.git",
       live: "https://collab-board-steel.vercel.app/",
@@ -38,7 +38,7 @@ export function Projects() {
     },
     {
       title: "MicroShop API",
-      description: "A microservices architecture with API Gateway (Nginx), Auth, Order, and Notification services using RabbitMQ for async messaging.",
+      description: "A microservices architecture I implemented with API Gateway (Nginx), Auth, Order, and Notification services using RabbitMQ for async messaging.",
       tech: ["Django", "Nginx", "RabbitMQ", "Docker", "Python"],
       github: "https://github.com/Bisrat-19/microservices_practice",
       live: "https://github.com/Bisrat-19/microservices_practice",
@@ -46,7 +46,7 @@ export function Projects() {
     },
     {
       title: "ArifMusic",
-      description: "A cross-platform music streaming application with offline playback and playlist management.",
+      description: "A cross-platform music streaming application I developed with offline playback and playlist management.",
       tech: ["Flutter", "Node.js", "Express.js", "MongoDB"],
       github: "https://github.com/Bisrat-19/Music-App",
       live: "https://github.com/Bisrat-19/Music-App",
@@ -54,7 +54,7 @@ export function Projects() {
     },
     {
       title: "Klever Küche",
-      description: "A furniture showcase platform with product details, retailer search, job portal, and an admin dashboard for content management.",
+      description: "A furniture showcase platform I contributed to with product details, retailer search, job portal, and an admin dashboard for content management.",
       tech: ["React","TypeScript","Tailwind CSS", "Strapi CMS", "PostgreSQL"],
       github: " ", 
       live: " ",

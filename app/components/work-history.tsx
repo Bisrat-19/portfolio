@@ -127,7 +127,7 @@ export function WorkHistory() {
                         My <span className="text-emerald-500">Experience</span>
                     </h2>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                        A timeline of my professional journey and achievements.
+                        I&apos;m <span className="font-semibold text-foreground">Bisrat Dereje</span>, a software engineer based in Addis Ababa, Ethiopia, and this is a timeline of my professional journey and achievements.
                     </p>
                 </div>
 

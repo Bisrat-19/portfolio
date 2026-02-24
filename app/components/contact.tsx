@@ -66,9 +66,7 @@ export function Contact() {
             <div>
               <h3 className="text-2xl font-semibold text-foreground mb-6">Let's work together!</h3>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                As a Software Engineer with experience across web, backend, and API development, I'm always interested
-                in meaningful work whether it's joining a team, collaborating on a product, or solving a specific
-                technical problem.
+                I&apos;m <span className="font-semibold text-foreground">Bisrat Dereje</span>, a software engineer with experience across web, backend, and API development. I&apos;m always interested in meaningful work whether it&apos;s joining a team, collaborating on a product, or solving a specific technical problem.
               </p>
             </div>
 
