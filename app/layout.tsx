@@ -5,20 +5,16 @@ import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Bisrat Dereje Gizaw | Software Engineer | Portfolio',
+    default: 'Bisrat Dereje | Software Engineer',
     template: '%s | Bisrat Dereje'
   },
-  description: 'Bisrat Dereje Gizaw — Software engineer born in Chiro town, Ethiopia. Portfolio showcasing full-stack development, React, Next.js, and scalable systems. Based in Addis Ababa.',
+  description: 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.',
   keywords: [
     'Bisrat Dereje',
-    'Bisrat Dereje Gizaw',
-    'Bisrat Gizaw',
     'Software Engineer',
     'Software Engineer Ethiopia',
     'Full Stack Developer',
     'Web Developer Ethiopia',
-    'Chiro town',
-    'Chiro Ethiopia',
     'Addis Ababa',
     'Ethiopia',
     'React Developer',
@@ -26,29 +22,29 @@ export const metadata: Metadata = {
     'TypeScript',
     'Node.js',
   ],
-  authors: [{ name: 'Bisrat Dereje Gizaw', url: 'https://bisratdereje.me' }],
-  creator: 'Bisrat Dereje Gizaw',
+  authors: [{ name: 'Bisrat Dereje', url: 'https://bisratdereje.me' }],
+  creator: 'Bisrat Dereje',
   metadataBase: new URL('https://bisratdereje.me'),
   openGraph: {
     type: 'profile',
     locale: 'en_US',
     url: 'https://bisratdereje.me',
-    title: 'Bisrat Dereje Gizaw | Software Engineer born in Chiro town',
-    description: 'Bisrat Dereje Gizaw — Software engineer born in Chiro town, Ethiopia. Full-stack developer building web applications and scalable systems in Addis Ababa.',
-    siteName: 'Bisrat Dereje Gizaw Portfolio',
+    title: 'Bisrat Dereje | Software Engineer',
+    description: 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.',
+    siteName: 'Bisrat Dereje Portfolio',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Bisrat Dereje Gizaw - Software Engineer from Chiro town, Ethiopia',
+        alt: 'Bisrat Dereje - Software Engineer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bisrat Dereje Gizaw | Software Engineer | Chiro town',
-    description: 'Bisrat Dereje Gizaw — Software engineer born in Chiro town. Full-stack developer in Addis Ababa.',
+    title: 'Bisrat Dereje | Software Engineer',
+    description: 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.',
     creator: '@bisrat_dereje',
     images: ['/og-image.png'],
   },
@@ -89,24 +85,11 @@ export default function RootLayout({
   const personJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Bisrat Dereje Gizaw',
-    alternateName: ['Bisrat Dereje', 'Bisrat Gizaw'],
-    givenName: 'Bisrat',
-    familyName: 'Gizaw',
+    name: 'Bisrat Dereje',
     url: 'https://bisratdereje.me',
     jobTitle: 'Software Engineer',
-    description: 'Bisrat Dereje Gizaw — Software engineer born in Chiro town, Ethiopia. Full-stack developer building web applications and scalable systems.',
+    description: 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.',
     image: 'https://bisratdereje.me/og-image.png',
-    birthPlace: {
-      '@type': 'Place',
-      name: 'Chiro',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Chiro',
-        addressRegion: 'Oromia',
-        addressCountry: 'Ethiopia',
-      },
-    },
     sameAs: [
       'https://github.com/Bisrat-19',
       'https://www.linkedin.com/in/bisrat19/',
@@ -136,14 +119,13 @@ export default function RootLayout({
   const websiteJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Bisrat Dereje Gizaw - Software Engineer',
+    name: 'Bisrat Dereje - Software Engineer',
     url: 'https://bisratdereje.me',
-    description: 'Portfolio of Bisrat Dereje Gizaw, software engineer born in Chiro town, Ethiopia.',
+    description: 'Portfolio of Bisrat Dereje, Software Engineer in Addis Ababa, Ethiopia.',
     author: {
       '@type': 'Person',
-      name: 'Bisrat Dereje Gizaw',
+      name: 'Bisrat Dereje',
       jobTitle: 'Software Engineer',
-      birthPlace: 'Chiro town, Ethiopia',
     },
   }
 
