@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: 'Bisrat Dereje Portfolio',
     images: [
       {
-        url: '/og-image.png',
+        url: '/Bisrat.png',
         width: 1200,
         height: 630,
         alt: 'Bisrat Dereje - Software Engineer',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     title: 'Bisrat Dereje | Software Engineer',
     description: 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.',
     creator: '@bisrat_dereje',
-    images: ['/og-image.png'],
+    images: ['/Bisrat.png'],
   },
   robots: {
     index: true,
@@ -89,7 +89,12 @@ export default function RootLayout({
     url: 'https://bisratdereje.me',
     jobTitle: 'Software Engineer',
     description: 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.',
-    image: 'https://bisratdereje.me/og-image.png',
+    image: {
+      '@type': 'ImageObject',
+      url: 'https://bisratdereje.me/Bisrat.png',
+      width: 1200,
+      height: 630,
+    },
     sameAs: [
       'https://github.com/Bisrat-19',
       'https://www.linkedin.com/in/bisrat19/',
@@ -126,6 +131,12 @@ export default function RootLayout({
       '@type': 'Person',
       name: 'Bisrat Dereje',
       jobTitle: 'Software Engineer',
+    },
+    image: {
+      '@type': 'ImageObject',
+      url: 'https://bisratdereje.me/Bisrat.png',
+      width: 1200,
+      height: 630,
     },
   }
 
