@@ -12,7 +12,7 @@ export function Hero() {
   }
 
   const openResume = () => {
-    window.open("https://drive.google.com/file/d/1ExamBEhd-EdK7UOgiWRVHNVn3_xP2UBl/view?usp=sharing", "_blank")
+    window.open("https://drive.google.com/file/d/1BO9sBbdaZ_mIcLyfm7Q5mioy5yokmatN/view?usp=sharing", "_blank")
   }
 
   return (
