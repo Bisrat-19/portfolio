@@ -131,7 +131,7 @@ export const skills: { group: string; items: string[] }[] = [
   { group: "Frontend & Mobile", items: ["React", "Next.js", "Redux", "Angular", "Flutter", "Tailwind CSS"] },
   { group: "Backend", items: ["NestJS", "Express.js", "Django", ".NET", "REST API", "GraphQL", "Kafka", "RabbitMQ"] },
   { group: "Databases", items: ["PostgreSQL", "MongoDB", "MySQL", "Redis"] },
-  { group: "DevOps & Tools", items: ["Git", "GitHub", "CI/CD", "Docker", "Kubernetes", "AWS", "gRPC"] },
+  { group: "DevOps & Tools", items: ["Git", "GitHub", "CI/CD", "Docker", "Kubernetes", "Nginx", "AWS", "gRPC"] },
   { group: "Architecture", items: ["Monolithic", "Microservices", "Caching", "Message Brokers"] },
 ]
 
