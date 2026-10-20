@@ -22,9 +22,12 @@ export type Job = {
   role: string
   company: string
   url?: string
-  // e.g. "Jan 2024 - Present"; shown next to the role when set
-  period?: string
-  points: string[]
+  // Square logo in /public/logos; jobs without one show a fallback icon
+  logo?: string
+  description?: string
+  // Shown in the timeline pill, e.g. "May 2024 - October 2025"
+  period: string
+  points?: string[]
 }
 
 export const experience: Job[] = [
@@ -32,7 +35,8 @@ export const experience: Job[] = [
     role: "Software Engineer",
     company: "Infra Tech Software Services",
     url: "https://www.infratechsoftwareservices.com/",
-    period: "12/2025 - Present",
+    logo: "/logos/infratech.png",
+    period: "December 2025 - Present",
     points: [
       "Designed, developed, and maintained backend systems using NestJS, Express.js, and Django across multiple projects with scalable and maintainable architectures.",
       "Built and implemented microservices-based architectures, including API Gateway patterns and event-driven systems using message brokers for asynchronous communication.",
@@ -43,33 +47,28 @@ export const experience: Job[] = [
   },
   {
     role: "Full-Stack Developer",
-    company: "Freelance",
-    period: "2025 - Present",
+    company: "Freelance · Upwork",
+    url: "https://www.upwork.com",
+    logo: "/logos/upwork.svg",
+    period: "October 2025 - Present",
     points: [
-      "Build modern, responsive websites and full-stack applications for clients.",
-      "Manage entire project cycles: planning, design, development, and deployment.",
-      "Provide ongoing maintenance, improvements, and client-centered problem solving.",
+      "Build modern, reliable, and scalable web applications, AI-powered products, SaaS platforms, CRM systems, and business dashboards that solve real business problems.",
+      "Handle the entire development process, from frontend and backend development to database design, API integration, and cloud deployment.",
+      "Specialize in AI solutions, including AI agents, LLM applications, RAG systems, and intelligent search.",
+      "Focus on understanding each client's needs, delivering high-quality solutions, and building products that are practical, user-friendly, and ready for real-world use.",
     ],
   },
   {
     role: "Full-Stack Developer",
     company: "GumiSofts",
-    url: "https://gumisoft.in/",
-    period: "05/2024 - 10/2025",
+    url: "https://gumisofts.com/",
+    logo: "/logos/gumisofts.png",
+    period: "May 2024 - October 2025",
     points: [
       "Developed and maintained full-stack web and mobile applications using React, Django REST Framework, and Flutter for multiple client projects.",
       "Collaborated closely with product managers, designers, and developers in agile teams to deliver scalable, high-quality mobile and web solutions.",
       "Integrated third-party services and implemented secure authentication and authorization systems.",
       "Wrote clean, maintainable, and well-documented code following best practices and software engineering principles.",
-    ],
-  },
-  {
-    role: "Backend Developer Intern",
-    company: "INSA",
-    points: [
-      "Led backend development for Legalink, a legal case-management platform.",
-      "Designed and implemented RESTful APIs for authentication, case tracking, and communication.",
-      "Collaborated closely with the frontend team using Agile/Scrum workflows.",
     ],
   },
 ]
@@ -125,9 +124,9 @@ export const projects: Project[] = [
 export const skills: { group: string; items: string[] }[] = [
   { group: "Languages", items: ["TypeScript", "Python", "C", "C++", "Go", "Dart"] },
   { group: "Frontend & Mobile", items: ["React", "Next.js", "Angular", "Flutter", "Tailwind CSS"] },
-  { group: "Backend", items: ["NestJS", "Express.js", "Django", ".NET", "GraphQL"] },
+  { group: "Backend", items: ["NestJS", "Express.js", "Django", ".NET", "GraphQL", "Kafka"] },
   { group: "Databases", items: ["PostgreSQL", "MongoDB", "MySQL", "Redis"] },
-  { group: "DevOps & Tools", items: ["Git", "GitHub", "CI/CD", "Docker", "Kubernetes", "gRPC", "Webpack", "Vite"] },
+  { group: "DevOps & Tools", items: ["Git", "GitHub", "CI/CD", "Docker", "Kubernetes", "gRPC"] },
   { group: "Architecture", items: ["Monolithic", "Microservices", "Caching", "Message Brokers"] },
 ]
 
@@ -139,6 +138,6 @@ export const education = [
     degree: "BSc in Information Technology, Software Engineering",
     period: "2022 - 2027",
     summary:
-      "Core coursework in Software Development, Data Structures & Algorithms, Databases, Web & Mobile Application Development, and Artificial Intelligence. Designed and built full-stack projects applying software engineering principles, system design, and clean, maintainable code.",
+      "Core coursework in Software Development, Data Structures & Algorithms, Databases, Web & Mobile Application Development, Artificial Intelligence, Machine Learning, DevOps, Distributed Systems, Cybersecurity, Cloud Computing, and Software Project Management. Designed and built full-stack projects applying software engineering principles, system design, and clean, maintainable code.",
   },
 ]

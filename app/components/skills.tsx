@@ -1,7 +1,7 @@
 import {
   SiTypescript, SiPython, SiC, SiCplusplus, SiGo, SiDart, SiReact, SiNextdotjs, SiAngular, SiFlutter, SiTailwindcss,
-  SiNestjs, SiExpress, SiDjango, SiDotnet, SiGraphql, SiPostgresql, SiMongodb, SiMysql, SiRedis,
-  SiGit, SiGithub, SiGithubactions, SiDocker, SiKubernetes, SiWebpack, SiVite,
+  SiNestjs, SiExpress, SiDjango, SiDotnet, SiGraphql, SiApachekafka, SiPostgresql, SiMongodb, SiMysql, SiRedis,
+  SiGit, SiGithub, SiGithubactions, SiDocker, SiKubernetes,
 } from "react-icons/si"
 import type { IconType } from "react-icons"
 import { skills } from "../data"
@@ -11,10 +11,9 @@ import { Section } from "./section"
 const icons: Record<string, IconType> = {
   TypeScript: SiTypescript, Python: SiPython, C: SiC, "C++": SiCplusplus, Go: SiGo, Dart: SiDart,
   React: SiReact, "Next.js": SiNextdotjs, Angular: SiAngular, Flutter: SiFlutter, "Tailwind CSS": SiTailwindcss,
-  NestJS: SiNestjs, "Express.js": SiExpress, Django: SiDjango, ".NET": SiDotnet, GraphQL: SiGraphql,
+  NestJS: SiNestjs, "Express.js": SiExpress, Django: SiDjango, ".NET": SiDotnet, GraphQL: SiGraphql, Kafka: SiApachekafka,
   PostgreSQL: SiPostgresql, MongoDB: SiMongodb, MySQL: SiMysql, Redis: SiRedis,
   Git: SiGit, GitHub: SiGithub, "CI/CD": SiGithubactions, Docker: SiDocker, Kubernetes: SiKubernetes,
-  Webpack: SiWebpack, Vite: SiVite,
 }
 
 export function Skills() {
