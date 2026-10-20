@@ -1,20 +1,9 @@
-"use client"
-
-import { Github, Linkedin, Mail, ArrowRight } from "lucide-react"
+import { Github, Linkedin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+const RESUME_URL = "https://drive.google.com/file/d/1BO9sBbdaZ_mIcLyfm7Q5mioy5yokmatN/view?usp=sharing"
+
 export function Hero() {
-  const scrollToProjects = () => {
-    const element = document.getElementById("projects")
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-  }
-
-  const openResume = () => {
-    window.open("https://drive.google.com/file/d/1BO9sBbdaZ_mIcLyfm7Q5mioy5yokmatN/view?usp=sharing", "_blank")
-  }
-
   return (
     <section
       id="about"
@@ -31,9 +20,9 @@ export function Hero() {
               Bisrat Dereje
               <span className="text-emerald-500">.</span>
             </h1>
-            <h2 className="text-xl sm:text-2xl text-muted-foreground font-light">
+            <p className="text-xl sm:text-2xl text-muted-foreground font-light">
               Software Engineer
-            </h2>
+            </p>
           </div>
 
           <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto">
@@ -45,23 +34,25 @@ export function Hero() {
 
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center pt-8">
             <Button
-              onClick={openResume}
+              asChild
               className="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-6 rounded-md text-lg font-medium transition-all duration-300 min-w-[180px]"
             >
-              Resume
+              <a href={RESUME_URL} target="_blank" rel="noopener noreferrer">
+                Resume
+              </a>
             </Button>
 
             <Button
-              onClick={scrollToProjects}
+              asChild
               variant="outline"
               className="border-input text-foreground hover:bg-accent px-8 py-6 rounded-md text-lg font-medium transition-all duration-300 min-w-[180px]"
             >
-              Explore My Work
+              <a href="#projects">Explore My Work</a>
             </Button>
           </div>
 
           <div className="pt-16 space-y-6">
-            <p className="text-sm font-medium tracking-widest text-gray-500 uppercase">
+            <p className="text-sm font-medium tracking-widest text-muted-foreground uppercase">
               Connect
             </p>
             <div className="flex gap-8 justify-center">
@@ -69,6 +60,7 @@ export function Hero() {
                 href="https://github.com/Bisrat-19"
                 target="_blank"
                 rel="noopener noreferrer me"
+                aria-label="GitHub profile"
                 className="text-muted-foreground hover:text-foreground transition-colors transform hover:scale-110"
               >
                 <Github className="h-6 w-6" />
@@ -77,12 +69,14 @@ export function Hero() {
                 href="https://www.linkedin.com/in/bisrat19/"
                 target="_blank"
                 rel="noopener noreferrer me"
+                aria-label="LinkedIn profile"
                 className="text-muted-foreground hover:text-foreground transition-colors transform hover:scale-110"
               >
                 <Linkedin className="h-6 w-6" />
               </a>
               <a
                 href="mailto:bdereje996@gmail.com"
+                aria-label="Send an email"
                 className="text-muted-foreground hover:text-foreground transition-colors transform hover:scale-110"
               >
                 <Mail className="h-6 w-6" />

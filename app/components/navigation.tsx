@@ -1,14 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X, Sun, Moon, ArrowRight } from "lucide-react"
+import { Menu, X, Sun, Moon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -20,11 +20,10 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    element?.scrollIntoView({ behavior: "smooth" })
-    setIsMobileMenuOpen(false)
-  }
+  const isDark = resolvedTheme === "dark"
+  const toggleTheme = () => setTheme(isDark ? "light" : "dark")
+  // The theme is unknown during SSR, so keep the label generic until mounted to avoid a hydration mismatch
+  const themeLabel = !mounted ? "Toggle theme" : isDark ? "Switch to light mode" : "Switch to dark mode"
 
   const navItems = [
     { id: "about", label: "ABOUT" },
@@ -42,21 +41,25 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="text-2xl font-bold tracking-widest border-2 border-foreground px-2 py-1">
+          <a
+            href="#about"
+            aria-label="Bisrat Dereje - back to top"
+            className="text-2xl font-bold tracking-widest border-2 border-foreground px-2 py-1"
+          >
             BD
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <div className="flex items-baseline space-x-6">
               {navItems.map((item) => (
-                <button
+                <a
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  href={`#${item.id}`}
                   className="text-sm font-medium hover:text-primary transition-colors duration-200"
                 >
                   {item.label}
-                </button>
+                </a>
               ))}
             </div>
 
@@ -64,10 +67,11 @@ export function Navigation() {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                onClick={toggleTheme}
+                aria-label={themeLabel}
                 className="rounded-full"
               >
-                {mounted && (theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />)}
+                {mounted && (isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />)}
               </Button>
             </div>
           </div>
@@ -77,15 +81,18 @@ export function Navigation() {
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={toggleTheme}
+              aria-label={themeLabel}
               className="rounded-full"
             >
-              {mounted && (theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />)}
+              {mounted && (isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />)}
             </Button>
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -97,13 +104,14 @@ export function Navigation() {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background/95 backdrop-blur-md rounded-lg mt-2 border border-border">
               {navItems.map((item) => (
-                <button
+                <a
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  href={`#${item.id}`}
+                  onClick={() => setIsMobileMenuOpen(false)}
                   className="block px-3 py-2 rounded-md text-base font-medium w-full text-left hover:bg-accent hover:text-accent-foreground transition-colors duration-200"
                 >
                   {item.label}
-                </button>
+                </a>
               ))}
             </div>
           </div>

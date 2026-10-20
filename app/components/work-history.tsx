@@ -1,8 +1,7 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 import { useScroll, useTransform, motion } from "framer-motion"
-import { ChevronDown } from "lucide-react"
 
 const TimelineItem = ({
     title,
@@ -133,7 +132,7 @@ export function WorkHistory() {
 
                 <div ref={containerRef} className="relative max-w-7xl mx-auto min-h-[1000px]">
                     {/* Central Line Background */}
-                    <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-[2px] bg-zinc-800/50" />
+                    <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-[2px] bg-border" />
 
                     {/* Animated Line */}
                     <motion.div
@@ -143,8 +142,6 @@ export function WorkHistory() {
                         {/* Glowing Tip */}
                         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-emerald-400 rounded-full shadow-[0_0_15px_rgba(16,185,129,1)] animate-pulse" />
                     </motion.div>
-
-                    {/* Bottom Arrow Removed */}
 
                     <div className="relative z-10 pt-10">
                         {history.map((item, index) => (

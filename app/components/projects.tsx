@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
+import Image from "next/image"
 import { ExternalLink, Github, ChevronRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -19,7 +20,14 @@ export function Projects() {
     }
   }
 
-  const projects = [
+  const projects: {
+    title: string
+    description: string
+    tech: string[]
+    github?: string
+    live?: string
+    image: string
+  }[] = [
     {
       title: "HealPoint",
       description: "A comprehensive hospital management system I built for patient registration, appointments, treatment tracking, and Chapa payment integration.",
@@ -41,7 +49,6 @@ export function Projects() {
       description: "A microservices architecture I implemented with API Gateway (Nginx), Auth, Order, and Notification services using RabbitMQ for async messaging.",
       tech: ["Django", "Nginx", "RabbitMQ", "Docker", "Python"],
       github: "https://github.com/Bisrat-19/microservices_practice",
-      live: "https://github.com/Bisrat-19/microservices_practice",
       image: "/project_microshop.png"
     },
     {
@@ -49,15 +56,12 @@ export function Projects() {
       description: "A cross-platform music streaming application I developed with offline playback and playlist management.",
       tech: ["Flutter", "Node.js", "Express.js", "MongoDB"],
       github: "https://github.com/Bisrat-19/Music-App",
-      live: "https://github.com/Bisrat-19/Music-App",
       image: "/project_arifmusic.png"
     },
     {
       title: "Klever Küche",
       description: "A furniture showcase platform I contributed to with product details, retailer search, job portal, and an admin dashboard for content management.",
       tech: ["React","TypeScript","Tailwind CSS", "Strapi CMS", "PostgreSQL"],
-      github: " ", 
-      live: " ",
       image: "/project_bg_1.png"
     },
   ]
@@ -113,18 +117,21 @@ export function Projects() {
           }}
         >
           {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="relative group flex-shrink-0 w-[85vw] md:w-[600px] h-[400px] rounded-3xl overflow-hidden bg-zinc-900 border border-white/10 shadow-xl snap-center cursor-pointer"
+            <motion.article
+              key={project.title}
+              className="relative group flex-shrink-0 w-[85vw] md:w-[600px] h-[400px] rounded-3xl overflow-hidden bg-zinc-900 border border-white/10 shadow-xl snap-center"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
               {/* Image Background */}
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: `url(${project.image})` }}
+              <Image
+                src={project.image}
+                alt={`${project.title} project preview`}
+                fill
+                sizes="(min-width: 768px) 600px, 85vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
 
               {/* Overlay */}
@@ -133,16 +140,19 @@ export function Projects() {
               {/* Content */}
               <div className="absolute inset-0 p-8 flex flex-col justify-end">
                 {/* Floating Links on Top Right */}
-                <div className="absolute top-6 right-6 flex gap-3 translate-y-[-20px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 bg-white/10 hover:bg-emerald-500 text-white rounded-full backdrop-blur-md border border-white/20 transition-all duration-300 transform hover:scale-110"
-                    title="View Code"
-                  >
-                    <Github className="h-5 w-5" />
-                  </a>
+                <div className="absolute top-6 right-6 flex gap-3 md:translate-y-[-20px] md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-within:translate-y-0 md:group-focus-within:opacity-100 transition-all duration-500 delay-100">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 bg-white/10 hover:bg-emerald-500 text-white rounded-full backdrop-blur-md border border-white/20 transition-all duration-300 transform hover:scale-110"
+                      title="View Code"
+                      aria-label={`${project.title} source code on GitHub`}
+                    >
+                      <Github className="h-5 w-5" />
+                    </a>
+                  )}
                   {project.live && (
                     <a
                       href={project.live}
@@ -150,17 +160,18 @@ export function Projects() {
                       rel="noopener noreferrer"
                       className="p-3 bg-white/10 hover:bg-emerald-500 text-white rounded-full backdrop-blur-md border border-white/20 transition-all duration-300 transform hover:scale-110"
                       title="View Live"
+                      aria-label={`${project.title} live demo`}
                     >
                       <ExternalLink className="h-5 w-5" />
                     </a>
                   )}
                 </div>
 
-                <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="transform md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-500">
                   <h3 className="text-3xl font-bold text-white mb-3 tracking-wide group-hover:text-emerald-400 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-zinc-300 mb-6 line-clamp-2 group-hover:line-clamp-none transition-all duration-500">
+                  <p className="text-zinc-300 mb-6 md:line-clamp-2 md:group-hover:line-clamp-none transition-all duration-500">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -175,7 +186,7 @@ export function Projects() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
 
           {/* Spacer for end of scroll */}

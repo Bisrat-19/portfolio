@@ -7,13 +7,22 @@ import { Navigation } from "./components/navigation"
 
 export default function Portfolio() {
   return (
-    <main className="min-h-screen bg-black">
-      <Navigation />
-      <Hero />
-      <WorkHistory />
-      <Skills />
-      <Projects />
-      <Contact />
-    </main>
+    <>
+      <header>
+        <Navigation />
+      </header>
+      <main className="min-h-screen bg-background">
+        <Hero />
+        <WorkHistory />
+        <Skills />
+        <Projects />
+        <Contact />
+      </main>
+      <footer className="bg-background px-4 pb-8">
+        <div className="max-w-6xl mx-auto text-center pt-8 border-t border-border">
+          <p className="text-muted-foreground">© {new Date().getFullYear()} Bisrat Dereje.</p>
+        </div>
+      </footer>
+    </>
   )
 }

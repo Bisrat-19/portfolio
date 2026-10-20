@@ -104,6 +104,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Keep anchored sections clear of the fixed navigation bar */
+  scroll-padding-top: 5rem;
 }
 
 /* Marquee animation for mobile skill badges */

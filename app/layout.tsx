@@ -1,14 +1,18 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
-import Script from 'next/script'
+import { Toaster } from '@/components/ui/sonner'
+
+const siteUrl = 'https://bisratdereje.me'
+const title = 'Bisrat Dereje | Software Engineer'
+const description = 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Bisrat Dereje | Software Engineer',
+    default: title,
     template: '%s | Bisrat Dereje'
   },
-  description: 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.',
+  description,
   keywords: [
     'Bisrat Dereje',
     'Software Engineer',
@@ -21,32 +25,27 @@ export const metadata: Metadata = {
     'Next.js',
     'TypeScript',
     'Node.js',
+    'Django',
   ],
-  authors: [{ name: 'Bisrat Dereje', url: 'https://bisratdereje.me' }],
+  authors: [{ name: 'Bisrat Dereje', url: siteUrl }],
   creator: 'Bisrat Dereje',
-  metadataBase: new URL('https://bisratdereje.me'),
+  metadataBase: new URL(siteUrl),
+  // og:image and twitter:image come from app/opengraph-image.tsx and app/twitter-image.tsx
   openGraph: {
     type: 'profile',
+    firstName: 'Bisrat',
+    lastName: 'Dereje',
     locale: 'en_US',
-    url: 'https://bisratdereje.me',
-    title: 'Bisrat Dereje | Software Engineer',
-    description: 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.',
+    url: siteUrl,
+    title,
+    description,
     siteName: 'Bisrat Dereje Portfolio',
-    images: [
-      {
-        url: '/Bisrat.png',
-        width: 1200,
-        height: 630,
-        alt: 'Bisrat Dereje - Software Engineer',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bisrat Dereje | Software Engineer',
-    description: 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.',
+    title,
+    description,
     creator: '@bisrat_dereje',
-    images: ['/Bisrat.png'],
   },
   robots: {
     index: true,
@@ -69,7 +68,7 @@ export const metadata: Metadata = {
     apple: '/favicon.svg?v=1',
   },
   alternates: {
-    canonical: 'https://bisratdereje.me',
+    canonical: '/',
   },
   manifest: '/manifest.json',
   other: {
@@ -77,81 +76,87 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+  ],
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${siteUrl}/#person`,
+      name: 'Bisrat Dereje',
+      url: siteUrl,
+      email: 'mailto:bdereje996@gmail.com',
+      jobTitle: 'Software Engineer',
+      description,
+      image: {
+        '@type': 'ImageObject',
+        url: `${siteUrl}/Bisrat.png`,
+        width: 1024,
+        height: 1024,
+      },
+      sameAs: [
+        'https://github.com/Bisrat-19',
+        'https://www.linkedin.com/in/bisrat19/',
+        'https://twitter.com/bisrat_dereje',
+      ],
+      knowsAbout: [
+        'Software Engineering',
+        'Web Development',
+        'React',
+        'Next.js',
+        'TypeScript',
+        'Node.js',
+        'Django',
+        'Full Stack Development',
+        'System Architecture',
+      ],
+      alumniOf: {
+        '@type': 'CollegeOrUniversity',
+        name: 'Addis Ababa University',
+      },
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Addis Ababa',
+        addressCountry: 'ET',
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      name: 'Bisrat Dereje - Software Engineer',
+      url: siteUrl,
+      description: 'Portfolio of Bisrat Dereje, Software Engineer in Addis Ababa, Ethiopia.',
+      inLanguage: 'en',
+      author: { '@id': `${siteUrl}/#person` },
+    },
+    {
+      '@type': 'ProfilePage',
+      '@id': `${siteUrl}/#profilepage`,
+      url: siteUrl,
+      name: title,
+      isPartOf: { '@id': `${siteUrl}/#website` },
+      mainEntity: { '@id': `${siteUrl}/#person` },
+    },
+  ],
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const personJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Bisrat Dereje',
-    url: 'https://bisratdereje.me',
-    jobTitle: 'Software Engineer',
-    description: 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.',
-    image: {
-      '@type': 'ImageObject',
-      url: 'https://bisratdereje.me/Bisrat.png',
-      width: 1200,
-      height: 630,
-    },
-    sameAs: [
-      'https://github.com/Bisrat-19',
-      'https://www.linkedin.com/in/bisrat19/',
-      'https://twitter.com/bisrat_dereje',
-    ],
-    knowsAbout: [
-      'Software Engineering',
-      'Web Development',
-      'React',
-      'Next.js',
-      'TypeScript',
-      'Node.js',
-      'Full Stack Development',
-      'System Architecture',
-    ],
-    alumniOf: {
-      '@type': 'CollegeOrUniversity',
-      name: 'Addis Ababa University',
-    },
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Addis Ababa',
-      addressCountry: 'Ethiopia',
-    },
-  }
-
-  const websiteJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'Bisrat Dereje - Software Engineer',
-    url: 'https://bisratdereje.me',
-    description: 'Portfolio of Bisrat Dereje, Software Engineer in Addis Ababa, Ethiopia.',
-    author: {
-      '@type': 'Person',
-      name: 'Bisrat Dereje',
-      jobTitle: 'Software Engineer',
-    },
-    image: {
-      '@type': 'ImageObject',
-      url: 'https://bisratdereje.me/Bisrat.png',
-      width: 1200,
-      height: 630,
-    },
-  }
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning>
-        <Script
-          id="json-ld-person"
+        <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
-        />
-        <Script
-          id="json-ld-website"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
         />
         <ThemeProvider
           attribute="class"
@@ -160,9 +165,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Toaster richColors position="bottom-right" />
         </ThemeProvider>
       </body>
     </html>
   )
 }
-

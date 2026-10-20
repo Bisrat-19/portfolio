@@ -1,5 +1,3 @@
-"use client"
-
 import {
   SiJavascript, SiTypescript, SiPython, SiGo, SiHtml5, SiCss3, SiReact, SiNextdotjs, SiAngular, SiTailwindcss,
   SiNodedotjs, SiExpress, SiNestjs, SiDjango, SiDotnet, SiPostgresql, SiMysql, SiMongodb, SiDocker, SiGit, SiGithub,
@@ -7,11 +5,13 @@ import {
 } from "react-icons/si"
 import { FaNetworkWired, FaJava } from "react-icons/fa"
 import { TbBrandCSharp } from "react-icons/tb"
+import type { IconType } from "react-icons"
 
-
+type Skill = { name: string; icon: IconType; color?: string }
 
 export function Skills() {
-  const skills = [
+  // Skills without a brand colour use the theme text colour so they stay visible in light mode
+  const skills: Skill[] = [
     { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
     { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
     { name: "Python", icon: SiPython, color: "#3776AB" },
@@ -21,11 +21,11 @@ export function Skills() {
     { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
     { name: "CSS3", icon: SiCss3, color: "#1572B6" },
     { name: "React", icon: SiReact, color: "#61DAFB" },
-    { name: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
+    { name: "Next.js", icon: SiNextdotjs },
     { name: "Angular", icon: SiAngular, color: "#DD0031" },
     { name: "Tailwind", icon: SiTailwindcss, color: "#06B6D4" },
     { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-    { name: "Express", icon: SiExpress, color: "#ffffff" },
+    { name: "Express", icon: SiExpress },
     { name: "NestJS", icon: SiNestjs, color: "#E0234E" },
     { name: "Django", icon: SiDjango, color: "#44B78B" },
     { name: ".NET Core", icon: SiDotnet, color: "#512BD4" },
@@ -37,7 +37,7 @@ export function Skills() {
     { name: "Nginx", icon: SiNginx, color: "#009639" },
     { name: "Docker", icon: SiDocker, color: "#2496ED" },
     { name: "Git", icon: SiGit, color: "#F05032" },
-    { name: "GitHub", icon: SiGithub, color: "#ffffff" },
+    { name: "GitHub", icon: SiGithub },
     { name: "CI/CD", icon: FaNetworkWired, color: "#2088FF" },
   ]
 
@@ -55,28 +55,29 @@ export function Skills() {
         </div>
 
         {/* Creative Cloud Layout */}
-        <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-          {skills.map((skill, index) => {
+        <ul className="flex flex-wrap justify-center gap-3 md:gap-4">
+          {skills.map((skill) => {
             const Icon = skill.icon
             return (
-              <div
-                key={index}
-                className="group relative flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900/50 border border-white/5 hover:border-emerald-500/50 hover:bg-zinc-800/80 backdrop-blur-sm transition-all duration-300 cursor-default hover:scale-105 hover:shadow-[0_0_20px_rgba(16,185,129,0.2)]"
+              <li
+                key={skill.name}
+                className="group relative flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 border border-border hover:border-emerald-500/50 hover:bg-accent backdrop-blur-sm transition-all duration-300 cursor-default hover:scale-105 hover:shadow-[0_0_20px_rgba(16,185,129,0.2)]"
               >
                 <Icon
-                  className="text-lg md:text-xl transition-colors duration-300 group-hover:text-emerald-400"
+                  className="text-lg md:text-xl text-foreground"
+                  aria-hidden
                   style={{ color: skill.color }}
                 />
-                <span className="text-sm md:text-base font-medium text-zinc-300 group-hover:text-white transition-colors">
+                <span className="text-sm md:text-base font-medium text-muted-foreground group-hover:text-foreground transition-colors">
                   {skill.name}
                 </span>
 
                 {/* Subtle Glow Effect on Hover */}
                 <div className="absolute inset-0 rounded-full bg-emerald-500/10 opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300 -z-10" />
-              </div>
+              </li>
             )
           })}
-        </div>
+        </ul>
       </div>
     </section>
   )

@@ -2,7 +2,8 @@
 
 import type React from "react"
 import { useState } from "react"
-import emailjs from "emailjs-com"
+import emailjs from "@emailjs/browser"
+import { toast } from "sonner"
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -17,31 +18,31 @@ export function Contact() {
     message: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+  const [isSending, setIsSending] = useState(false)
 
-    emailjs
-      .send(
-        "service_qtafb58", // ✅ Your EmailJS Service ID
-        "template_tvogcxm", // ✅ Your EmailJS Template ID
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSending(true)
+
+    try {
+      await emailjs.send(
+        "service_qtafb58", // EmailJS Service ID
+        "template_tvogcxm", // EmailJS Template ID
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
         },
-        "PDhb5IERJQtYcgtsE" // ✅ Your EmailJS Public Key
+        { publicKey: "PDhb5IERJQtYcgtsE" } // EmailJS Public Key
       )
-      .then(
-        (result) => {
-          console.log("Email sent:", result.text)
-          alert("✅ Message sent successfully!")
-          setFormData({ name: "", email: "", message: "" }) // Clear form
-        },
-        (error) => {
-          console.error("Email send error:", error.text)
-          alert("❌ Failed to send message. Please try again later.")
-        }
-      )
+      toast.success("Message sent! I'll get back to you soon.")
+      setFormData({ name: "", email: "", message: "" })
+    } catch (error) {
+      console.error("Email send error:", error)
+      toast.error("Failed to send message. Please try again or email me directly.")
+    } finally {
+      setIsSending(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -133,7 +134,7 @@ export function Contact() {
                 className="rounded-full bg-card border-border text-foreground hover:bg-emerald-500/20 hover:border-emerald-500/50"
                 asChild
               >
-                <a href="https://github.com/Bisrat-19" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/Bisrat-19" target="_blank" rel="noopener noreferrer me" aria-label="GitHub profile">
                   <Github className="h-5 w-5" />
                 </a>
               </Button>
@@ -143,7 +144,7 @@ export function Contact() {
                 className="rounded-full bg-card border-border text-foreground hover:bg-emerald-500/20 hover:border-emerald-500/50"
                 asChild
               >
-                <a href="mailto:bdereje996@gmail.com">
+                <a href="mailto:bdereje996@gmail.com" aria-label="Send an email">
                   <Mail className="h-5 w-5" />
                 </a>
               </Button>
@@ -153,7 +154,7 @@ export function Contact() {
                 className="rounded-full bg-card border-border text-foreground hover:bg-emerald-500/20 hover:border-emerald-500/50"
                 asChild
               >
-                <a href="tel:+251936092033">
+                <a href="tel:+251936092033" aria-label="Call by phone">
                   <Phone className="h-5 w-5" />
                 </a>
               </Button>
@@ -168,6 +169,8 @@ export function Contact() {
                   <Input
                     type="text"
                     name="name"
+                    aria-label="Your name"
+                    autoComplete="name"
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={handleChange}
@@ -180,6 +183,8 @@ export function Contact() {
                   <Input
                     type="email"
                     name="email"
+                    aria-label="Your email"
+                    autoComplete="email"
                     placeholder="Your Email"
                     value={formData.email}
                     onChange={handleChange}
@@ -191,6 +196,8 @@ export function Contact() {
                 <div>
                   <Textarea
                     name="message"
+                    aria-label="Your message"
+                    autoComplete="off"
                     placeholder="Your Message"
                     rows={5}
                     value={formData.message}
@@ -202,18 +209,14 @@ export function Contact() {
 
                 <Button
                   type="submit"
+                  disabled={isSending}
                   className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-medium py-3"
                 >
-                  Send Message
+                  {isSending ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </CardContent>
           </Card>
-        </div>
-
-        {/* Footer */}
-        <div className="text-center mt-16 pt-8 border-t border-border">
-          <p className="text-muted-foreground">© 2024 Bisrat Dereje.</p>
         </div>
       </div>
     </section>
