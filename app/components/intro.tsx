@@ -13,13 +13,13 @@ const socials = [
 export function Intro() {
   return (
     <header id="about" className="flex flex-col gap-6 md:flex-row md:gap-8">
-      <div className="relative aspect-square w-full max-w-72 shrink-0 self-center overflow-hidden rounded border border-border md:w-[38%] md:self-start">
+      <div className="relative aspect-square w-full max-w-96 shrink-0 self-center md:w-[46%] md:self-start">
         <Image
-          src="/bisrat-sketch.jpg"
+          src="/bisrat-sketch.png"
           alt="Sketch portrait of Bisrat Dereje"
           fill
           priority
-          sizes="(min-width: 768px) 288px, 90vw"
+          sizes="(min-width: 768px) 340px, 90vw"
           className="object-cover"
         />
       </div>
