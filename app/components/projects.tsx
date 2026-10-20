@@ -25,7 +25,7 @@ export function Projects() {
                   alt={`${project.title} project preview`}
                   fill
                   sizes="(min-width: 640px) 300px, 85vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className={`object-cover transition-transform duration-500 group-hover:scale-105 ${project.imagePosition ?? "object-top"}`}
                 />
               </div>
 

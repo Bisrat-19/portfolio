@@ -80,6 +80,8 @@ export type Project = {
   description: string
   tech: string[]
   image: string
+  // Tailwind object-position class for the card crop; defaults to "object-top"
+  imagePosition?: string
   github?: string
   live?: string
 }
@@ -89,7 +91,7 @@ export const projects: Project[] = [
     title: "HealPoint",
     description: "A hospital management system for patient registration, appointments, treatment tracking, and Chapa payment integration.",
     tech: ["React", "TypeScript", "Tailwind CSS", "Django", "Redis", "PostgreSQL"],
-    image: "/project_healpoint.png",
+    image: "/project_healpoint_dashboard.png",
     github: "https://github.com/Bisrat-19/hospital_management",
     live: "https://heal-point-ten.vercel.app/",
   },
@@ -97,7 +99,8 @@ export const projects: Project[] = [
     title: "CollabBoard",
     description: "A project management tool that helps teams organize projects, manage tasks, and collaborate with real-time chat, notifications, boards, task assignments, and role-based access.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Express.js", "Socket.io", "MongoDB"],
-    image: "/project_bg_2.png",
+    image: "/project_collabboard_dashboard.png",
+    imagePosition: "object-left-top",
     github: "https://github.com/Bisrat-19/CollabBoard",
     live: "https://collab-board-steel.vercel.app/",
   },
@@ -128,7 +131,7 @@ export const skills: { group: string; items: string[] }[] = [
   { group: "Frontend & Mobile", items: ["React", "Next.js", "Redux", "Angular", "Flutter", "Tailwind CSS"] },
   { group: "Backend", items: ["NestJS", "Express.js", "Django", ".NET", "REST API", "GraphQL", "Kafka", "RabbitMQ"] },
   { group: "Databases", items: ["PostgreSQL", "MongoDB", "MySQL", "Redis"] },
-  { group: "DevOps & Tools", items: ["Git", "GitHub", "CI/CD", "Docker", "Kubernetes", "gRPC"] },
+  { group: "DevOps & Tools", items: ["Git", "GitHub", "CI/CD", "Docker", "Kubernetes", "AWS", "gRPC"] },
   { group: "Architecture", items: ["Monolithic", "Microservices", "Caching", "Message Brokers"] },
 ]
 

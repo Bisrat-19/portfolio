@@ -3,7 +3,7 @@ import {
   SiNestjs, SiExpress, SiDjango, SiDotnet, SiGraphql, SiApachekafka, SiRabbitmq, SiPostgresql, SiMongodb, SiMysql, SiRedis,
   SiGit, SiGithub, SiGithubactions, SiDocker, SiKubernetes,
 } from "react-icons/si"
-import { FaJava } from "react-icons/fa"
+import { FaAws, FaJava } from "react-icons/fa"
 import { TbApi } from "react-icons/tb"
 import type { IconType } from "react-icons"
 import { skills } from "../data"
@@ -15,7 +15,7 @@ const icons: Record<string, IconType> = {
   React: SiReact, "Next.js": SiNextdotjs, Redux: SiRedux, Angular: SiAngular, Flutter: SiFlutter, "Tailwind CSS": SiTailwindcss,
   NestJS: SiNestjs, "Express.js": SiExpress, Django: SiDjango, ".NET": SiDotnet, GraphQL: SiGraphql, Kafka: SiApachekafka, RabbitMQ: SiRabbitmq, "REST API": TbApi,
   PostgreSQL: SiPostgresql, MongoDB: SiMongodb, MySQL: SiMysql, Redis: SiRedis,
-  Git: SiGit, GitHub: SiGithub, "CI/CD": SiGithubactions, Docker: SiDocker, Kubernetes: SiKubernetes,
+  Git: SiGit, GitHub: SiGithub, "CI/CD": SiGithubactions, Docker: SiDocker, Kubernetes: SiKubernetes, AWS: FaAws,
 }
 
 export function Skills() {
