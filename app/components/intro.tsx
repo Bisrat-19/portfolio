@@ -15,12 +15,12 @@ export function Intro() {
     <header id="about" className="flex flex-col gap-6 md:flex-row md:gap-8">
       <div className="relative aspect-square w-full max-w-72 shrink-0 self-center overflow-hidden rounded border border-border md:w-[38%] md:self-start">
         <Image
-          src="/bisrat.jpg"
-          alt="Portrait of Bisrat Dereje"
+          src="/bisrat-sketch.jpg"
+          alt="Sketch portrait of Bisrat Dereje"
           fill
           priority
           sizes="(min-width: 768px) 288px, 90vw"
-          className="object-cover transition-all duration-500 md:grayscale md:hover:grayscale-0"
+          className="object-cover"
         />
       </div>
 
