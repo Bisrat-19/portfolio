@@ -4,20 +4,21 @@ import type React from "react"
 import { useState } from "react"
 import emailjs from "@emailjs/browser"
 import { toast } from "sonner"
+import { Mail, MapPin, Phone } from "lucide-react"
+import { profile } from "../data"
+import { Section } from "./section"
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Github, Mail, MapPin, Phone } from "lucide-react"
+const inputClass =
+  "w-full rounded border border-border bg-transparent px-3 py-2 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-foreground"
+
+const details = [
+  { label: "Email", value: profile.email, href: `mailto:${profile.email}`, icon: Mail },
+  { label: "Phone", value: profile.phone, href: profile.phoneHref, icon: Phone },
+  { label: "Location", value: profile.location, icon: MapPin },
+]
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
-
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" })
   const [isSending, setIsSending] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -46,179 +47,79 @@ export function Contact() {
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   return (
-    <section id="contact" className="py-20 px-4 bg-background">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Get In <span className="text-emerald-500">Touch</span>
-          </h2>
+    <Section id="contact" title="Contact">
+      <div className="grid gap-4 md:grid-cols-[2fr_3fr]">
+        <div className="space-y-4 px-1">
+          <p className="text-sm leading-relaxed">
+            Have a project in mind, a role to fill, or just want to say hi? My inbox is open.
+          </p>
+          <ul className="space-y-3 text-sm">
+            {details.map(({ label, value, href, icon: Icon }) => (
+              <li key={label} className="flex items-center gap-3">
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-border">
+                  <Icon aria-hidden className="size-3.5" />
+                </span>
+                <span className="sr-only">{label}: </span>
+                {href ? (
+                  <a href={href} className="text-muted-foreground transition-colors hover:text-foreground">
+                    {value}
+                  </a>
+                ) : (
+                  <span className="text-muted-foreground">{value}</span>
+                )}
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-semibold text-foreground mb-6">Let's work together!</h3>
-              <p className="text-muted-foreground leading-relaxed mb-8">
-                I&apos;m <span className="font-semibold text-foreground">Bisrat Dereje</span>, a software engineer with experience across web, backend, and API development. I&apos;m always interested in meaningful work whether it&apos;s joining a team, collaborating on a product, or solving a specific technical problem.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              <div className="flex items-center space-x-4">
-                <div className="bg-emerald-500/20 p-3 rounded-full">
-                  <Phone className="h-5 w-5 text-emerald-400" />
-                </div>
-                <div>
-                  <p className="text-foreground font-medium">Phone</p>
-                  <a href="tel:+251936092033" className="text-muted-foreground hover:text-emerald-400 transition-colors">
-                    +251 936 092 033
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="bg-emerald-500/20 p-3 rounded-full">
-                  <Mail className="h-5 w-5 text-emerald-400" />
-                </div>
-                <div>
-                  <p className="text-foreground font-medium">Email</p>
-                  <a
-                    href="mailto:bdereje996@gmail.com"
-                    className="text-muted-foreground hover:text-emerald-400 transition-colors"
-                  >
-                    bdereje996@gmail.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="bg-emerald-500/20 p-3 rounded-full">
-                  <Github className="h-5 w-5 text-emerald-400" />
-                </div>
-                <div>
-                  <p className="text-foreground font-medium">GitHub</p>
-                  <a
-                    href="https://github.com/Bisrat-19"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-emerald-400 transition-colors"
-                  >
-                    github.com/Bisrat-19
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="bg-emerald-500/20 p-3 rounded-full">
-                  <MapPin className="h-5 w-5 text-emerald-400" />
-                </div>
-                <div>
-                  <p className="text-foreground font-medium">Location</p>
-                  <p className="text-muted-foreground">Addis Ababa, Ethiopia</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex space-x-4 pt-4">
-              <Button
-                variant="outline"
-                size="icon"
-                className="rounded-full bg-card border-border text-foreground hover:bg-emerald-500/20 hover:border-emerald-500/50"
-                asChild
-              >
-                <a href="https://github.com/Bisrat-19" target="_blank" rel="noopener noreferrer me" aria-label="GitHub profile">
-                  <Github className="h-5 w-5" />
-                </a>
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                className="rounded-full bg-card border-border text-foreground hover:bg-emerald-500/20 hover:border-emerald-500/50"
-                asChild
-              >
-                <a href="mailto:bdereje996@gmail.com" aria-label="Send an email">
-                  <Mail className="h-5 w-5" />
-                </a>
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                className="rounded-full bg-card border-border text-foreground hover:bg-emerald-500/20 hover:border-emerald-500/50"
-                asChild
-              >
-                <a href="tel:+251936092033" aria-label="Call by phone">
-                  <Phone className="h-5 w-5" />
-                </a>
-              </Button>
-            </div>
+        <form onSubmit={handleSubmit} className="space-y-3 rounded border border-border p-4">
+          <div className="grid gap-3 sm:grid-cols-2">
+            <input
+              type="text"
+              name="name"
+              aria-label="Your name"
+              autoComplete="name"
+              placeholder="Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className={inputClass}
+            />
+            <input
+              type="email"
+              name="email"
+              aria-label="Your email"
+              autoComplete="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className={inputClass}
+            />
           </div>
-
-          {/* Contact Form */}
-          <Card className="bg-card border-border">
-            <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <Input
-                    type="text"
-                    name="name"
-                    aria-label="Your name"
-                    autoComplete="name"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="bg-secondary/50 border-input text-foreground placeholder:text-muted-foreground focus:border-emerald-500 focus:bg-background focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300"
-                  />
-                </div>
-
-                <div>
-                  <Input
-                    type="email"
-                    name="email"
-                    aria-label="Your email"
-                    autoComplete="email"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="bg-secondary/50 border-input text-foreground placeholder:text-muted-foreground focus:border-emerald-500 focus:bg-background focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300"
-                  />
-                </div>
-
-                <div>
-                  <Textarea
-                    name="message"
-                    aria-label="Your message"
-                    autoComplete="off"
-                    placeholder="Your Message"
-                    rows={5}
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    className="bg-secondary/50 border-input text-foreground placeholder:text-muted-foreground focus:border-emerald-500 focus:bg-background focus-visible:ring-0 focus-visible:ring-offset-0 resize-none transition-all duration-300"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  disabled={isSending}
-                  className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-medium py-3"
-                >
-                  {isSending ? "Sending..." : "Send Message"}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-        </div>
+          <textarea
+            name="message"
+            aria-label="Your message"
+            placeholder="Message"
+            rows={5}
+            value={formData.message}
+            onChange={handleChange}
+            required
+            className={`${inputClass} resize-none`}
+          />
+          <button
+            type="submit"
+            disabled={isSending}
+            className="rounded-full bg-foreground px-5 py-2 text-sm font-medium text-background transition-opacity hover:opacity-80 disabled:opacity-50"
+          >
+            {isSending ? "Sending..." : "Send message"}
+          </button>
+        </form>
       </div>
-    </section>
+    </Section>
   )
 }

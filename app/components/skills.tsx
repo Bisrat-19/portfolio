@@ -1,84 +1,48 @@
 import {
-  SiJavascript, SiTypescript, SiPython, SiGo, SiHtml5, SiCss3, SiReact, SiNextdotjs, SiAngular, SiTailwindcss,
-  SiNodedotjs, SiExpress, SiNestjs, SiDjango, SiDotnet, SiPostgresql, SiMysql, SiMongodb, SiDocker, SiGit, SiGithub,
-  SiNginx, SiRedis, SiRabbitmq
+  SiTypescript, SiPython, SiC, SiCplusplus, SiGo, SiDart, SiReact, SiNextdotjs, SiAngular, SiFlutter, SiTailwindcss,
+  SiNestjs, SiExpress, SiDjango, SiDotnet, SiGraphql, SiPostgresql, SiMongodb, SiMysql, SiRedis,
+  SiGit, SiGithub, SiGithubactions, SiDocker, SiKubernetes, SiWebpack, SiVite,
 } from "react-icons/si"
-import { FaNetworkWired, FaJava } from "react-icons/fa"
-import { TbBrandCSharp } from "react-icons/tb"
 import type { IconType } from "react-icons"
+import { skills } from "../data"
+import { Section } from "./section"
 
-type Skill = { name: string; icon: IconType; color?: string }
+// Skills without a matching brand icon render as text only
+const icons: Record<string, IconType> = {
+  TypeScript: SiTypescript, Python: SiPython, C: SiC, "C++": SiCplusplus, Go: SiGo, Dart: SiDart,
+  React: SiReact, "Next.js": SiNextdotjs, Angular: SiAngular, Flutter: SiFlutter, "Tailwind CSS": SiTailwindcss,
+  NestJS: SiNestjs, "Express.js": SiExpress, Django: SiDjango, ".NET": SiDotnet, GraphQL: SiGraphql,
+  PostgreSQL: SiPostgresql, MongoDB: SiMongodb, MySQL: SiMysql, Redis: SiRedis,
+  Git: SiGit, GitHub: SiGithub, "CI/CD": SiGithubactions, Docker: SiDocker, Kubernetes: SiKubernetes,
+  Webpack: SiWebpack, Vite: SiVite,
+}
 
 export function Skills() {
-  // Skills without a brand colour use the theme text colour so they stay visible in light mode
-  const skills: Skill[] = [
-    { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-    { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-    { name: "Python", icon: SiPython, color: "#3776AB" },
-    { name: "Java", icon: FaJava, color: "#F89820" },
-    { name: "C#", icon: TbBrandCSharp, color: "#68217A" },
-    { name: "Go", icon: SiGo, color: "#00ADD8" },
-    { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
-    { name: "CSS3", icon: SiCss3, color: "#1572B6" },
-    { name: "React", icon: SiReact, color: "#61DAFB" },
-    { name: "Next.js", icon: SiNextdotjs },
-    { name: "Angular", icon: SiAngular, color: "#DD0031" },
-    { name: "Tailwind", icon: SiTailwindcss, color: "#06B6D4" },
-    { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-    { name: "Express", icon: SiExpress },
-    { name: "NestJS", icon: SiNestjs, color: "#E0234E" },
-    { name: "Django", icon: SiDjango, color: "#44B78B" },
-    { name: ".NET Core", icon: SiDotnet, color: "#512BD4" },
-    { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
-    { name: "MySQL", icon: SiMysql, color: "#4479A1" },
-    { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
-    { name: "Redis", icon: SiRedis, color: "#DC382D" },
-    { name: "RabbitMQ", icon: SiRabbitmq, color: "#FF6600" },
-    { name: "Nginx", icon: SiNginx, color: "#009639" },
-    { name: "Docker", icon: SiDocker, color: "#2496ED" },
-    { name: "Git", icon: SiGit, color: "#F05032" },
-    { name: "GitHub", icon: SiGithub },
-    { name: "CI/CD", icon: FaNetworkWired, color: "#2088FF" },
-  ]
-
   return (
-    <section id="skills" className="py-20 bg-background relative overflow-hidden">
-      <div className="max-w-5xl mx-auto px-4 md:px-8 relative z-10">
-        {/* Header */}
-        <div className="mb-12 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            My <span className="text-emerald-500">Skills</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive list of technologies and tools I work with.
-          </p>
-        </div>
-
-        {/* Creative Cloud Layout */}
-        <ul className="flex flex-wrap justify-center gap-3 md:gap-4">
-          {skills.map((skill) => {
-            const Icon = skill.icon
-            return (
-              <li
-                key={skill.name}
-                className="group relative flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 border border-border hover:border-emerald-500/50 hover:bg-accent backdrop-blur-sm transition-all duration-300 cursor-default hover:scale-105 hover:shadow-[0_0_20px_rgba(16,185,129,0.2)]"
-              >
-                <Icon
-                  className="text-lg md:text-xl text-foreground"
-                  aria-hidden
-                  style={{ color: skill.color }}
-                />
-                <span className="text-sm md:text-base font-medium text-muted-foreground group-hover:text-foreground transition-colors">
-                  {skill.name}
-                </span>
-
-                {/* Subtle Glow Effect on Hover */}
-                <div className="absolute inset-0 rounded-full bg-emerald-500/10 opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300 -z-10" />
-              </li>
-            )
-          })}
-        </ul>
-      </div>
-    </section>
+    <Section id="skills" title="Skills">
+      <dl className="space-y-4 rounded border border-border p-4">
+        {skills.map(({ group, items }) => (
+          <div key={group} className="flex flex-col gap-2 sm:flex-row sm:items-start">
+            <dt className="w-36 shrink-0 pt-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              {group}
+            </dt>
+            <dd className="flex flex-wrap gap-2">
+              {items.map((skill) => {
+                const Icon = icons[skill]
+                return (
+                  <span
+                    key={skill}
+                    className="inline-flex items-center gap-1.5 border border-border px-3 py-1 text-sm transition-all hover:rounded-lg hover:bg-foreground hover:text-background"
+                  >
+                    {Icon && <Icon aria-hidden className="size-3.5" />}
+                    {skill}
+                  </span>
+                )
+              })}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </Section>
   )
 }

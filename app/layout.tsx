@@ -2,6 +2,9 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
+import { Lexend } from 'next/font/google'
+
+const lexend = Lexend({ subsets: ['latin'], variable: '--font-lexend', display: 'swap' })
 
 const siteUrl = 'https://bisratdereje.me'
 const title = 'Bisrat Dereje | Software Engineer'
@@ -58,15 +61,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  icons: {
-    icon: [
-      {
-        url: '/favicon.svg?v=1',
-        type: 'image/svg+xml',
-      }
-    ],
-    apple: '/favicon.svg?v=1',
-  },
   alternates: {
     canonical: '/',
   },
@@ -78,7 +72,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+    { media: '(prefers-color-scheme: dark)', color: '#09090b' },
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
   ],
 }
@@ -96,9 +90,9 @@ const jsonLd = {
       description,
       image: {
         '@type': 'ImageObject',
-        url: `${siteUrl}/Bisrat.png`,
-        width: 1024,
-        height: 1024,
+        url: `${siteUrl}/bisrat.jpg`,
+        width: 800,
+        height: 800,
       },
       sameAs: [
         'https://github.com/Bisrat-19',
@@ -113,9 +107,16 @@ const jsonLd = {
         'TypeScript',
         'Node.js',
         'Django',
+        'NestJS',
+        'Microservices',
         'Full Stack Development',
         'System Architecture',
       ],
+      worksFor: {
+        '@type': 'Organization',
+        name: 'Infra Tech Software Services',
+        url: 'https://www.infratechsoftwareservices.com/',
+      },
       alumniOf: {
         '@type': 'CollegeOrUniversity',
         name: 'Addis Ababa University',
@@ -152,20 +153,20 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning>
+    <html lang="en" className={lexend.variable} suppressHydrationWarning>
+      <body className="font-sans antialiased" suppressHydrationWarning>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
         />
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
           {children}
-          <Toaster richColors position="bottom-right" />
+          <Toaster position="bottom-center" />
         </ThemeProvider>
       </body>
     </html>

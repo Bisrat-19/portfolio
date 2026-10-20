@@ -1,28 +1,25 @@
-import { Hero } from "./components/hero"
-import { Skills } from "./components/skills"
+import { Intro } from "./components/intro"
+import { Experience } from "./components/experience"
+import { Education } from "./components/education"
 import { Projects } from "./components/projects"
-import { WorkHistory } from "./components/work-history"
+import { Skills } from "./components/skills"
 import { Contact } from "./components/contact"
-import { Navigation } from "./components/navigation"
 
 export default function Portfolio() {
   return (
-    <>
-      <header>
-        <Navigation />
-      </header>
-      <main className="min-h-screen bg-background">
-        <Hero />
-        <WorkHistory />
-        <Skills />
+    <div className="mx-auto w-full max-w-3xl px-4 pb-16 pt-10 sm:px-6 md:pt-16">
+      <main>
+        <Intro />
+        <Experience />
+        <Education />
         <Projects />
+        <Skills />
         <Contact />
       </main>
-      <footer className="bg-background px-4 pb-8">
-        <div className="max-w-6xl mx-auto text-center pt-8 border-t border-border">
-          <p className="text-muted-foreground">© {new Date().getFullYear()} Bisrat Dereje.</p>
-        </div>
+      <footer className="mt-16 flex flex-wrap justify-between gap-2 border-t border-border pt-6 text-xs text-muted-foreground">
+        <p>© {new Date().getFullYear()} Bisrat Dereje</p>
+        <p>Addis Ababa, Ethiopia</p>
       </footer>
-    </>
+    </div>
   )
 }
