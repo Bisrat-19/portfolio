@@ -21,7 +21,7 @@ export function Education() {
               </a>
               <p className="text-xs text-muted-foreground">{item.college}</p>
               <p className="mt-2 text-sm">{item.degree}</p>
-              <p className="mt-1 text-sm leading-relaxed text-muted-foreground md:w-[85%]">{item.summary}</p>
+              <p className="mt-1 text-sm leading-relaxed text-muted-foreground sm:w-[85%]">{item.summary}</p>
             </div>
           </li>
         ))}

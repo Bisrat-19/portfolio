@@ -10,12 +10,14 @@ export const profile = {
   resume: "https://drive.google.com/file/d/1BO9sBbdaZ_mIcLyfm7Q5mioy5yokmatN/view?usp=sharing",
   github: "https://github.com/Bisrat-19",
   linkedin: "https://www.linkedin.com/in/bisrat19/",
+  telegram: "https://t.me/Brt_D19",
+  instagram: "https://www.instagram.com/bisrat_d19",
 }
 
 export const bio = [
-  "Hi! I'm Bisrat, a software engineer from Addis Ababa, Ethiopia, focused on building scalable web and mobile applications with modern technologies.",
-  "I'm passionate about solving real-world problems through clean, efficient code. Today I build backend systems and microservices with NestJS, Express.js, and Django at Infra Tech Software Services, and before that I built full-stack web and mobile apps at GumiSofts.",
-  "I enjoy working with teams that value collaboration, creativity, and continuous improvement, and I take ownership of my work to deliver solutions that make a real impact.",
+  "Hi, I'm Bisrat. I like building the parts of a product people never see but always depend on: the APIs that respond instantly, the services that keep running under pressure, and the systems that stay easy to change as things grow.",
+  "I work across the full stack, from backends and microservices to web and mobile apps, and lately I've been exploring how AI agents and intelligent search can make products smarter and more useful. I care about clean, readable code, simple designs, and finishing what I start.",
+  "Take a look around, and if you have an idea, a problem, or a team that could use another builder, I'd love to hear from you.",
 ]
 
 export type Job = {
@@ -122,9 +124,9 @@ export const projects: Project[] = [
 ]
 
 export const skills: { group: string; items: string[] }[] = [
-  { group: "Languages", items: ["TypeScript", "Python", "C", "C++", "Go", "Dart"] },
-  { group: "Frontend & Mobile", items: ["React", "Next.js", "Angular", "Flutter", "Tailwind CSS"] },
-  { group: "Backend", items: ["NestJS", "Express.js", "Django", ".NET", "GraphQL", "Kafka"] },
+  { group: "Languages", items: ["JavaScript", "TypeScript", "Python", "Java", "C", "C++", "Go", "Dart"] },
+  { group: "Frontend & Mobile", items: ["React", "Next.js", "Redux", "Angular", "Flutter", "Tailwind CSS"] },
+  { group: "Backend", items: ["NestJS", "Express.js", "Django", ".NET", "REST API", "GraphQL", "Kafka", "RabbitMQ"] },
   { group: "Databases", items: ["PostgreSQL", "MongoDB", "MySQL", "Redis"] },
   { group: "DevOps & Tools", items: ["Git", "GitHub", "CI/CD", "Docker", "Kubernetes", "gRPC"] },
   { group: "Architecture", items: ["Monolithic", "Microservices", "Caching", "Message Brokers"] },

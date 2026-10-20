@@ -36,7 +36,7 @@ export function Experience() {
             <p className="w-fit rounded-full border border-border px-3 py-1 text-xs font-semibold">
               {job.period}
             </p>
-            <div className="ml-10 flex flex-col gap-2 border-l border-border pb-6 pl-5 pt-3 md:w-[85%]">
+            <div className="ml-10 flex flex-col gap-2 border-l border-border pb-6 pl-5 pt-3 sm:w-[85%]">
               <CompanyLogo job={job} />
               <div>
                 <h3 className="text-sm font-semibold">{job.role}</h3>

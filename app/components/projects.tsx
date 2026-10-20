@@ -9,25 +9,30 @@ const linkClass =
 export function Projects() {
   return (
     <Section id="projects" title="Projects">
-      <ul>
+      {/* Phones: horizontal swipeable row (edge to edge). Tablets and up: vertical list */}
+      <ul className="no-scrollbar -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:block sm:overflow-visible sm:px-0 sm:pb-0">
         {projects.map((project, index) => (
-          <li key={project.title} className="group">
-            {index > 0 && <Connector />}
-            <article className="flex flex-col md:flex-row">
-              <div className="relative h-52 w-full shrink-0 overflow-hidden rounded border border-border transition-all duration-300 group-hover:border-foreground group-hover:shadow-lg md:h-auto md:min-h-52 md:w-[40%]">
+          <li key={project.title} className="group w-[85%] shrink-0 snap-start sm:w-auto">
+            {index > 0 && (
+              <div className="hidden sm:block">
+                <Connector />
+              </div>
+            )}
+            <article className="flex h-full flex-col sm:h-auto sm:flex-row">
+              <div className="relative h-44 w-full shrink-0 overflow-hidden rounded border border-border transition-all duration-300 group-hover:border-foreground group-hover:shadow-lg sm:h-auto sm:min-h-52 sm:w-[40%]">
                 <Image
                   src={project.image}
                   alt={`${project.title} project preview`}
                   fill
-                  sizes="(min-width: 768px) 300px, 90vw"
+                  sizes="(min-width: 640px) 300px, 85vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
 
               {/* Short horizontal link between image and details, drawn on hover */}
-              <div aria-hidden className="my-auto hidden w-3 shrink-0 border-t border-transparent transition-colors group-hover:border-foreground md:block" />
+              <div aria-hidden className="my-auto hidden w-3 shrink-0 border-t border-transparent transition-colors group-hover:border-foreground sm:block" />
 
-              <div className="mt-2 flex w-full flex-col justify-between gap-3 rounded border border-border px-4 py-3 transition-all duration-300 group-hover:border-foreground group-hover:shadow-md md:mt-0">
+              <div className="mt-2 flex w-full flex-1 flex-col justify-between gap-3 rounded border border-border px-4 py-3 transition-all duration-300 group-hover:border-foreground group-hover:shadow-md sm:mt-0">
                 <div className="space-y-1.5">
                   <h3 className="font-semibold">{project.title}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{project.description}</p>

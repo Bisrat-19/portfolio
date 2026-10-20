@@ -94,6 +94,8 @@ const jsonLd = {
       sameAs: [
         'https://github.com/Bisrat-19',
         'https://www.linkedin.com/in/bisrat19/',
+        'https://t.me/Brt_D19',
+        'https://www.instagram.com/bisrat_d19',
         'https://twitter.com/bisrat_dereje',
       ],
       knowsAbout: [

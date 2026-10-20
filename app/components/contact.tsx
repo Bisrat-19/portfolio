@@ -52,7 +52,7 @@ export function Contact() {
 
   return (
     <Section id="contact" title="Contact">
-      <div className="grid gap-4 md:grid-cols-[2fr_3fr]">
+      <div className="grid gap-4 sm:grid-cols-[2fr_3fr]">
         <div className="space-y-4 px-1">
           <p className="text-sm leading-relaxed">
             Have a project in mind, a role to fill, or just want to say hi? My inbox is open.

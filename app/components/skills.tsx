@@ -1,17 +1,19 @@
 import {
-  SiTypescript, SiPython, SiC, SiCplusplus, SiGo, SiDart, SiReact, SiNextdotjs, SiAngular, SiFlutter, SiTailwindcss,
-  SiNestjs, SiExpress, SiDjango, SiDotnet, SiGraphql, SiApachekafka, SiPostgresql, SiMongodb, SiMysql, SiRedis,
+  SiJavascript, SiTypescript, SiPython, SiC, SiCplusplus, SiGo, SiDart, SiReact, SiNextdotjs, SiRedux, SiAngular, SiFlutter, SiTailwindcss,
+  SiNestjs, SiExpress, SiDjango, SiDotnet, SiGraphql, SiApachekafka, SiRabbitmq, SiPostgresql, SiMongodb, SiMysql, SiRedis,
   SiGit, SiGithub, SiGithubactions, SiDocker, SiKubernetes,
 } from "react-icons/si"
+import { FaJava } from "react-icons/fa"
+import { TbApi } from "react-icons/tb"
 import type { IconType } from "react-icons"
 import { skills } from "../data"
 import { Section } from "./section"
 
 // Skills without a matching brand icon render as text only
 const icons: Record<string, IconType> = {
-  TypeScript: SiTypescript, Python: SiPython, C: SiC, "C++": SiCplusplus, Go: SiGo, Dart: SiDart,
-  React: SiReact, "Next.js": SiNextdotjs, Angular: SiAngular, Flutter: SiFlutter, "Tailwind CSS": SiTailwindcss,
-  NestJS: SiNestjs, "Express.js": SiExpress, Django: SiDjango, ".NET": SiDotnet, GraphQL: SiGraphql, Kafka: SiApachekafka,
+  JavaScript: SiJavascript, TypeScript: SiTypescript, Python: SiPython, Java: FaJava, C: SiC, "C++": SiCplusplus, Go: SiGo, Dart: SiDart,
+  React: SiReact, "Next.js": SiNextdotjs, Redux: SiRedux, Angular: SiAngular, Flutter: SiFlutter, "Tailwind CSS": SiTailwindcss,
+  NestJS: SiNestjs, "Express.js": SiExpress, Django: SiDjango, ".NET": SiDotnet, GraphQL: SiGraphql, Kafka: SiApachekafka, RabbitMQ: SiRabbitmq, "REST API": TbApi,
   PostgreSQL: SiPostgresql, MongoDB: SiMongodb, MySQL: SiMysql, Redis: SiRedis,
   Git: SiGit, GitHub: SiGithub, "CI/CD": SiGithubactions, Docker: SiDocker, Kubernetes: SiKubernetes,
 }
