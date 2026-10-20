@@ -20,13 +20,24 @@ export function Projects() {
             )}
             <article className="flex h-full flex-col sm:h-auto sm:flex-row">
               <div className="relative h-44 w-full shrink-0 overflow-hidden rounded border border-border transition-all duration-300 group-hover:border-foreground group-hover:shadow-lg sm:h-auto sm:min-h-52 sm:w-[40%]">
-                <Image
-                  src={project.image}
-                  alt={`${project.title} project preview`}
-                  fill
-                  sizes="(min-width: 640px) 300px, 85vw"
-                  className={`object-cover transition-transform duration-500 group-hover:scale-105 ${project.imagePosition ?? "object-top"}`}
-                />
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} project preview`}
+                    fill
+                    sizes="(min-width: 640px) 300px, 85vw"
+                    className={`object-cover transition-transform duration-500 group-hover:scale-105 ${project.imagePosition ?? "object-top"}`}
+                  />
+                ) : (
+                  <div
+                    aria-hidden
+                    className="flex h-full min-h-44 items-center justify-center bg-muted bg-[radial-gradient(hsl(var(--border))_1px,transparent_1px)] p-6 text-center [background-size:14px_14px]"
+                  >
+                    <span className="text-lg font-semibold tracking-tight text-foreground/80 transition-transform duration-500 group-hover:scale-105">
+                      {project.title}
+                    </span>
+                  </div>
+                )}
               </div>
 
               {/* Short horizontal link between image and details, drawn on hover */}

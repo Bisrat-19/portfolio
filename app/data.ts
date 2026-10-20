@@ -79,7 +79,8 @@ export type Project = {
   title: string
   description: string
   tech: string[]
-  image: string
+  // Without an image the card shows a placeholder with the project title
+  image?: string
   // Tailwind object-position class for the card crop; defaults to "object-top"
   imagePosition?: string
   github?: string
@@ -87,6 +88,13 @@ export type Project = {
 }
 
 export const projects: Project[] = [
+  {
+    title: "Online Gaming Platform",
+    description: "A full-stack online gaming platform with an integrated bot, serving over 25,000 users. Real-time game events are streamed to players with Server-Sent Events, pages are server-rendered and cached for fast loads, and third-party payment integration handles deposits and payouts securely.",
+    tech: ["Next.js", "TypeScript", "PostgreSQL", "SSE", "SSR", "Caching", "Payment gateway integration"],
+    image: "/project_gaming_platform.jpg",
+    imagePosition: "object-center",
+  },
   {
     title: "HealPoint",
     description: "A hospital management system for patient registration, appointments, treatment tracking, and Chapa payment integration.",
@@ -105,24 +113,12 @@ export const projects: Project[] = [
     live: "https://collab-board-steel.vercel.app/",
   },
   {
-    title: "MicroShop API",
-    description: "A microservices architecture with an Nginx API gateway and Auth, Order, and Notification services communicating asynchronously over RabbitMQ.",
-    tech: ["Django", "Nginx", "RabbitMQ", "Docker", "Python"],
-    image: "/project_microshop.png",
-    github: "https://github.com/Bisrat-19/microservices_practice",
-  },
-  {
     title: "ArifMusic",
     description: "A cross-platform music streaming app with offline playback and playlist management.",
     tech: ["Flutter", "Node.js", "Express.js", "MongoDB"],
-    image: "/project_arifmusic.png",
+    image: "/project_arifmusic_tunetribe.jpg",
+    imagePosition: "object-center",
     github: "https://github.com/Bisrat-19/Music-App",
-  },
-  {
-    title: "Klever Küche",
-    description: "A furniture showcase platform with product details, retailer search, a job portal, and an admin dashboard for content management.",
-    tech: ["React", "TypeScript", "Tailwind CSS", "Strapi CMS", "PostgreSQL"],
-    image: "/project_bg_1.png",
   },
 ]
 
