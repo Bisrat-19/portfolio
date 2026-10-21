@@ -81,8 +81,6 @@ export type Project = {
   tech: string[]
   // Without an image the card shows a placeholder with the project title
   image?: string
-  // Tailwind object-position class for the card crop; defaults to "object-top"
-  imagePosition?: string
   github?: string
   live?: string
 }
@@ -93,14 +91,19 @@ export const projects: Project[] = [
     description: "A full-stack online gaming platform with an integrated bot, serving over 25,000 users. Real-time game events are streamed to players with Server-Sent Events, pages are server-rendered and cached for fast loads, and third-party payment integration handles deposits and payouts securely.",
     tech: ["Next.js", "TypeScript", "PostgreSQL", "SSE", "SSR", "Caching", "Payment gateway integration"],
     image: "/project_gaming_platform.jpg",
-    imagePosition: "object-center",
+  },
+  {
+    title: "Voice AI Receptionist",
+    description: "An AI phone receptionist for a home services business. Inbound calls are answered by a Vapi voice assistant on a Twilio number, and when a call ends, a webhook sends the transcript to an Express backend that extracts the caller's intent, requested service and emergency status and stores it in PostgreSQL. A React dashboard shows every call record.",
+    tech: ["TypeScript", "Node.js", "Express", "React", "PostgreSQL", "Vapi", "Twilio", "ngrok", "Docker"],
+    image: "/project_voice_ai_receptionist.jpg",
+    github: "https://github.com/Bisrat-19/voice-ai-agent",
   },
   {
     title: "Ecommerce Microservices",
     description: "An e-commerce backend built as independent Go and Python microservices. A GraphQL API gateway talks to account, product, order, payment and recommender services over gRPC, while Kafka events keep them in sync and Elasticsearch powers product search.",
     tech: ["Go", "Python", "GraphQL", "gRPC", "Kafka", "Elasticsearch", "PostgreSQL", "Docker", "DodoPayments"],
     image: "/project_ecommerce_microservices.png",
-    imagePosition: "object-center",
     github: "https://github.com/Bisrat-19/Ecommerce_API",
   },
   {
@@ -116,16 +119,14 @@ export const projects: Project[] = [
     description: "A project management tool that helps teams organize projects, manage tasks, and collaborate with real-time chat, notifications, boards, task assignments, and role-based access.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Express.js", "Socket.io", "MongoDB"],
     image: "/project_collabboard_kanban.png",
-    imagePosition: "object-center",
     github: "https://github.com/Bisrat-19/CollabBoard",
     live: "https://collab-board-steel.vercel.app/",
   },
   {
     title: "ArifMusic",
-    description: "A cross-platform Ethiopian music streaming app with role-based experiences for listeners, artists, and admins. Listeners stream, search, and build playlists with offline playback, artists upload and manage their tracks from a dashboard, and admins manage users and content. The Flutter app is backed by a Node.js and Express REST API secured with JWT, with data stored in MongoDB.",
+    description: "A cross-platform Ethiopian music streaming app for listeners, artists, and admins. Listeners stream, search, and build playlists, artists upload and manage their tracks, and admins manage users and content, all backed by a Node.js and Express REST API with JWT auth and MongoDB.",
     tech: ["Flutter", "Node.js", "Express.js", "REST API", "MongoDB"],
     image: "/project_arifmusic_tunetribe.jpg",
-    imagePosition: "object-center",
     github: "https://github.com/Bisrat-19/Music-App",
   },
 ]
