@@ -8,7 +8,9 @@ const lexend = Lexend({ subsets: ['latin'], variable: '--font-lexend', display: 
 
 const siteUrl = 'https://bisratdereje.me'
 const title = 'Bisrat Dereje | Software Engineer'
-const description = 'Software Engineer specializing in building reliable, well-structured web applications and scalable systems.'
+// Leads with the full name so Google uses it as the search snippet for name searches (~155 chars max)
+const description =
+  'Bisrat Dereje is a software engineer based in Addis Ababa, Ethiopia, who builds fast, reliable web and mobile applications and AI-powered products.'
 
 export const metadata: Metadata = {
   title: {
@@ -29,6 +31,9 @@ export const metadata: Metadata = {
     'TypeScript',
     'Node.js',
     'Django',
+    'NestJS',
+    'Microservices',
+    'Backend Engineer Ethiopia',
   ],
   authors: [{ name: 'Bisrat Dereje', url: siteUrl }],
   creator: 'Bisrat Dereje',
@@ -42,7 +47,8 @@ export const metadata: Metadata = {
     url: siteUrl,
     title,
     description,
-    siteName: 'Bisrat Dereje Portfolio',
+    // Google shows this as the site name above the URL in search results
+    siteName: 'Bisrat Dereje',
   },
   twitter: {
     card: 'summary_large_image',
@@ -81,10 +87,17 @@ const jsonLd = {
       '@type': 'Person',
       '@id': `${siteUrl}/#person`,
       name: 'Bisrat Dereje',
-      url: siteUrl,
+      givenName: 'Bisrat',
+      familyName: 'Dereje',
+      url: `${siteUrl}/`,
       email: 'mailto:bdereje996@gmail.com',
       jobTitle: 'Software Engineer',
       description,
+      hasOccupation: {
+        '@type': 'Occupation',
+        name: 'Software Engineer',
+        occupationLocation: { '@type': 'City', name: 'Addis Ababa, Ethiopia' },
+      },
       image: {
         '@type': 'ImageObject',
         url: `${siteUrl}/bisrat.jpg`,
@@ -100,16 +113,32 @@ const jsonLd = {
       ],
       knowsAbout: [
         'Software Engineering',
-        'Web Development',
-        'React',
-        'Next.js',
-        'TypeScript',
-        'Node.js',
-        'Django',
-        'NestJS',
+        'Backend Development',
         'Microservices',
         'Full Stack Development',
+        'AI Agents',
         'System Architecture',
+        'TypeScript',
+        'JavaScript',
+        'Python',
+        'Go',
+        'Node.js',
+        'NestJS',
+        'Express.js',
+        'Django',
+        'React',
+        'Next.js',
+        'Flutter',
+        'GraphQL',
+        'gRPC',
+        'Kafka',
+        'RabbitMQ',
+        'PostgreSQL',
+        'MongoDB',
+        'Redis',
+        'Docker',
+        'Kubernetes',
+        'AWS',
       ],
       worksFor: {
         '@type': 'Organization',
@@ -119,6 +148,7 @@ const jsonLd = {
       alumniOf: {
         '@type': 'CollegeOrUniversity',
         name: 'Addis Ababa University',
+        url: 'https://www.aau.edu.et/',
       },
       address: {
         '@type': 'PostalAddress',
@@ -129,17 +159,21 @@ const jsonLd = {
     {
       '@type': 'WebSite',
       '@id': `${siteUrl}/#website`,
-      name: 'Bisrat Dereje - Software Engineer',
-      url: siteUrl,
-      description: 'Portfolio of Bisrat Dereje, Software Engineer in Addis Ababa, Ethiopia.',
+      // Google's preferred source for the site name shown in search results
+      name: 'Bisrat Dereje',
+      alternateName: ['Bisrat Dereje Portfolio', 'bisratdereje.me'],
+      url: `${siteUrl}/`,
+      description,
       inLanguage: 'en',
       author: { '@id': `${siteUrl}/#person` },
     },
     {
       '@type': 'ProfilePage',
       '@id': `${siteUrl}/#profilepage`,
-      url: siteUrl,
+      url: `${siteUrl}/`,
       name: title,
+      description,
+      dateModified: new Date().toISOString(),
       isPartOf: { '@id': `${siteUrl}/#website` },
       mainEntity: { '@id': `${siteUrl}/#person` },
     },

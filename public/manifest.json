@@ -1,7 +1,7 @@
 {
-    "name": "Bisrat Dereje Portfolio",
-    "short_name": "Bisrat Portfolio",
-    "description": "Software Engineer specializing in building reliable, well-structured web applications and scalable systems.",
+    "name": "Bisrat Dereje",
+    "short_name": "Bisrat Dereje",
+    "description": "Bisrat Dereje is a software engineer based in Addis Ababa, Ethiopia, who builds fast, reliable web and mobile applications and AI-powered products.",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
